@@ -168,7 +168,7 @@
 										
 											</ul>
 										</li>
-										<li><a href="contact.php">Contact</a></li>
+										<li><a href="../contact.php">Contact</a></li>
                                         <li>
                                             <a href="#0">Se Connecter</a>
                                             <ul class="lab-ul">

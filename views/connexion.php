@@ -82,7 +82,7 @@
 </style>
 <body>
     <div class="login-clean">
-        <form method="post" action="login.php">
+        <form method="post" action="../model/login.php">
             <h2 class="sr-only">Connexion</h2>
             <div class="illustration"><i class="icon ion-ios-navigate"></i></div><br>
             <div class="form-group"><input class="form-control" type="email" name="email" placeholder="@Email" /></div><br>
