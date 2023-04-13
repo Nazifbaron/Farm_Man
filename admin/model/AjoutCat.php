@@ -8,7 +8,7 @@
             $libelle=htmlspecialchars($_POST['libelle']);
             
             
-            $sql='INSERT INTO Categorie(libelleCat) VALUES(?)';
+            $sql='INSERT INTO categorie(libelleCat) VALUES(?)';
             $req = $bdd->prepare($sql);
             $req->execute(array($libelle));
 

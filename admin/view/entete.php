@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
+
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -210,7 +213,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
+            <a href="produit.php" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Produit
@@ -219,7 +222,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link active">
+                <a href="produit.php" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Entrer les produits</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="produit.php" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Voir les produits</p>
                 </a>
@@ -229,7 +238,7 @@
           </li>
           
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="categorie.php" class="nav-link">
               <i class="nav-icon fas fa-edit"></i>
               <p>
                 Categorie

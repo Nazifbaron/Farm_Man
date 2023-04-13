@@ -1,7 +1,14 @@
 <?php
-   require_once "connexion.php";
 
+
+function dd($elm=null){
+  var_dump($elm);
+  die();
+}
+   require_once "connexion.php";
    if(isset($_POST['envoie'])){
+  
+    
         if(empty($_POST['nom']) || empty($_POST['categorie']) || empty($_POST['quantite']) || empty($_POST['prix'])){
             echo "Veuillez remplir tout les champs";
         }else{
@@ -10,10 +17,11 @@
             $quantite=htmlspecialchars($_POST['quantite']);
             $prix=htmlspecialchars($_POST['prix']);
             
-            $sql='INSERT INTO Produit(nomPr,categorie,quantitePr,prixU) VALUES(?, ?, ?, ?)';
+            $sql='INSERT INTO produit(nom,Categorie_idCat ,quantite,prix) VALUES(?, ?, ?, ?)';
             $req = $bdd->prepare($sql);
             $req->execute(array($nom, $categorie, $quantite, $prix));
-
+            
+          
             if ($req->rowCount() > 0) {
                 echo "<script> alert('Ajout éffectué avec succès');</script> .";  
               } else{
@@ -22,4 +30,5 @@
 
         }
    }
+   header('Location:../view/produit.php');
 ?>
