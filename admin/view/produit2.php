@@ -1,25 +1,34 @@
 <?php 
-    session_start();
     require_once "entete.php";
     require_once "../model/function.php";
 
-    require_once "../model/delete.php";
-
-    $id = $_GET['id'];
+    
     if(!empty($id)){
-      $produit = getProduitById($id);
+     
     }
     
     $cat = getCategorie();
-
-  
   ?>
+  <?php
+    if(isset($_GET['id'])){
+      $id = $_GET['id'];
+      $produit = getProduitById($id);
+      if($produit == 1){
+          $lire = $produit->fetch();
+          $nom = $lire['nom'];
+          $quantite = $lire['quantite'];
+          $prix = $lire['prix'];
+          $categorie = $lire['categorie'];
+
+      }
+  }
+  ?>
+
   <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <?php include('error_success.php'); ?>
             <h1>Produit</h1>
           </div>
           <div class="col-sm-6">
@@ -39,21 +48,26 @@
               <div class="card-header">
                 <h3 class="card-title">Entrer les information</h3>
               </div>
-              <form method="post" enctype="multipart/form-data" action="<?= !empty($id) ? "../model/modiProduit.php" : "../model/AjoutProduit.php"?>">
+              <form method="post" action="">
                 <div class="card-body">
-                  <input type="hidden" name="id_update" value="<?=$produit['id']?>">
+                  <input type="hidden" name="id_update" value="<?=$id?>">
                   <div class="form-group">
                     <label for="nom">Nom</label>
-                    <input type="text" class="form-control" name="nom" value="<?= !empty($id) ? $produit['nom'] : ""?>" id="nom" placeholder="@Enter produit">
+                    <input type="text" class="form-control" name="nom" value="<?=$nom?>" id="nom" placeholder="@Enter produit">
                   </div>
                   <div class="form-group">
 
                     <label for="categorie">Categorie</label>
 
                     <select name="categorie" class="form-control" id="categorie">
-                      <option value="<?=$produit['Categorie_idCat']?>" selected><?=getCategorieById($produit['Categorie_idCat'])['libelleCat']?></option>
-                        
-                      <?php foreach ($cat as $categorie) : ?>
+                    <option value="<?=$categorie ?>">select</option> 
+                    <?php 
+                      
+                      $res = getCategorie();
+                  
+                    ?>
+                                             
+                      <?php foreach ($res as $categorie) : ?>
                         <option value="<?=$categorie['id']?>"><?=$categorie['libelleCat']?></option>
                          
                             
@@ -63,20 +77,21 @@
                   </div>
                   <div class="form-group">
                     <label for="quantite">Quantite</label>
-                    <input type="number" class="form-control" value="<?=$produit['quantite']?>" name="quantite" id="quantite" placeholder="@Quantite">
+                    <input type="number" class="form-control" value="<?=$quantite?>" name="quantite" id="quantite" placeholder="@Quantite">
                   </div>
                   <div class="form-group">
                     <label for="prix">Prix Unitaire</label>
-                    <input type="number" class="form-control" value="<?=$produit['prix']?>" name="prix" id="prix" placeholder="@Prix">
+                    <input type="number" class="form-control" value="<?=$prix?>" name="prix" id="prix" placeholder="@Prix">
                   </div>
-                  <div class="form-group">
-                    <label for="img">Photo du produit</label>
-                    <input type="file" class="form-control"  name="img" id="img" >
-                  </div>
-
                   
                 <div class="card-footer">
-                  <button type="submit" name="envoie" class="btn btn-primary">Valider</button>
+                <?php if($update == true) :?>
+                
+                  <button type="submit" name="update" class="btn btn-primary">Update</button>
+                  <?php else :?>
+                    <button type="submit" name="envoie" class="btn btn-primary">Valider</button>
+                    <?php  endif?>
+                  
                 </div>
               </form>
             </div>
@@ -110,7 +125,6 @@
                       <th>Categorie</th>
                       <th>Quantite</th>
                       <th>Prix unitaire</th>
-                      <th>Image</th>
                       <th>Action</th>
                     </tr>
                   </thead>
@@ -127,10 +141,7 @@
                             <td><?=$value['libelleCat']?></td>
                             <td><?=$value['quantite']?></td>
                             <td><?=$value['prix']?></td>
-                            <td><img src="<?=$value['images']?>"/></td>
-                            <td><a href="?id=<?=$value['id']?>"><i class="bx bx-edit-alt"></i></a></td>
-                            <td><a href="../model/delete.php?supprimer=<?=$value['id']?>" onclick="return Confirmation();">supprimer</a></td>
-
+                            <td><a href="produit.php?id=<?=$value['id']?>"><i class="bx bx-edit-alt"></i>modif</a></td>
                           </tr>
                             <?php             
                             }

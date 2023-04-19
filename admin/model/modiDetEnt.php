@@ -8,19 +8,18 @@ function dd($elm=null){
    require_once "connexion.php";
    if(isset($_POST['envoie'])){
     
-        if(!empty($_POST['nom']) || !empty($_POST['categorie']) || !empty($_POST['quantite'])
-         || !empty($_POST['prix']) || !empty($_POST['id'])){
-          $nom=htmlspecialchars($_POST['nom']);
-          $categorie=htmlspecialchars($_POST['categorie']);
+        if(!empty($_POST['produit']) && !empty($_POST['entre']) && !empty($_POST['quantite']) && !empty($_POST['prix'])){
+          $produit=htmlspecialchars($_POST['produit']);
+          $entre=htmlspecialchars($_POST['entre']);
           $quantite=htmlspecialchars($_POST['quantite']);
           $prix=htmlspecialchars($_POST['prix']);
           $id = htmlspecialchars($_POST['id_update']);
-          
-          $sql='UPDATE produit SET nom=?, quantite=?, prix=?, Categorie_idCat=? WHERE id=?';
-          $req = $bdd->prepare($sql);
-          $req->execute(array($nom, $quantite, $prix, $categorie, $id));
 
-         var_dump($nom);
+          
+
+          $sql='UPDATE detailEntree SET Produit_id=?, Entree_idE=?, quantite=?, prix=? WHERE id=?';
+          $req = $bdd->prepare($sql);
+          $req->execute(array($produit, $entre, $quantite, $prix, $id));
           
         
           if ($req->rowCount() > 0) {
@@ -37,5 +36,5 @@ function dd($elm=null){
            
         }
    }
-   //header('Location:../view/produit.php');
+   header('Location:../view/detailEntre.php');
 ?>

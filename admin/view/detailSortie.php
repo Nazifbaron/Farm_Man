@@ -3,24 +3,26 @@
     require_once "entete.php";
     require_once "../model/function.php";
 
-    require_once "../model/delete.php";
+
 
     $id = $_GET['id'];
     if(!empty($id)){
-      $produit = getProduitById($id);
+      $details = getDetailSortieById($id);
+      $detail= getDetailSortieById($id);
     }
-    
-    $cat = getCategorie();
+    $sort = getSortie();
+    $prod = getProduit();
+
+  ?>
 
   
-  ?>
   <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <?php include('error_success.php'); ?>
-            <h1>Produit</h1>
+            <h1>Details des Sortie</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -37,43 +39,48 @@
           <div class="col-md-6">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Entrer les information</h3>
+                <h3 class="card-title">Entrer les Détails Sorties</h3>
               </div>
-              <form method="post" enctype="multipart/form-data" action="<?= !empty($id) ? "../model/modiProduit.php" : "../model/AjoutProduit.php"?>">
+              <form method="post" action="<?= !empty($id) ? "../model/modiDetSor.php" : "../model/ajoutDetSor.php"?>">
                 <div class="card-body">
-                  <input type="hidden" name="id_update" value="<?=$produit['id']?>">
-                  <div class="form-group">
-                    <label for="nom">Nom</label>
-                    <input type="text" class="form-control" name="nom" value="<?= !empty($id) ? $produit['nom'] : ""?>" id="nom" placeholder="@Enter produit">
-                  </div>
+                  <input type="hidden" name="id_update" value="<?=  $details['id'] ?>">
+
                   <div class="form-group">
 
-                    <label for="categorie">Categorie</label>
+                    <label for="produit">Produit</label>
 
-                    <select name="categorie" class="form-control" id="categorie">
-                      <option value="<?=$produit['Categorie_idCat']?>" selected><?=getCategorieById($produit['Categorie_idCat'])['libelleCat']?></option>
-                        
-                      <?php foreach ($cat as $categorie) : ?>
-                        <option value="<?=$categorie['id']?>"><?=$categorie['libelleCat']?></option>
-                         
+                    <select name="produit" class="form-control" id="produit">
+                    <option value="<?=$detail['Produit_id']?>" selected><?=getDetailSortieById($detail['Produit_id'])['nom']?></option>
                             
-                          
-                      <?php endforeach; ?>
+                      <?php foreach ($prod as $produit) : ?>
+                        <option value="<?=$produit['id']?>"><?=$produit['nom']?></option>
+                            
+                        <?php endforeach; ?>
+                    </select>
+                    </div>
+
+                
+                  <div class="form-group">
+
+                    <label for="sortie">Sortie</label>
+
+                    <select name="sortie" class="form-control" id="sortie">
+                      <option value="<?=$details['Sortie_idS']?>" selected><?=getSortieById($details['Sortie_idS'])['typeS']?></option>
+                            
+                        <?php foreach ($sort as $sortie) : ?>
+                          <option value="<?=$sortie['idS']?>"><?=$sortie['typeS']?></option>
+                                 
+                          <?php endforeach; ?>
                     </select>
                   </div>
+                 
                   <div class="form-group">
                     <label for="quantite">Quantite</label>
-                    <input type="number" class="form-control" value="<?=$produit['quantite']?>" name="quantite" id="quantite" placeholder="@Quantite">
-                  </div>
-                  <div class="form-group">
-                    <label for="prix">Prix Unitaire</label>
-                    <input type="number" class="form-control" value="<?=$produit['prix']?>" name="prix" id="prix" placeholder="@Prix">
-                  </div>
-                  <div class="form-group">
-                    <label for="img">Photo du produit</label>
-                    <input type="file" class="form-control"  name="img" id="img" >
+                    <input type="number" class="form-control" value="<?= $quantite ?>" name="quantite" id="quantite" placeholder="@Quantite">
                   </div>
 
+                 
+                 
                   
                 <div class="card-footer">
                   <button type="submit" name="envoie" class="btn btn-primary">Valider</button>
@@ -87,7 +94,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Liste des Produits</h3>
+                <h3 class="card-title">Liste des Entrés</h3>
 
                 <div class="card-tools">
                   <div class="input-group input-group-sm" style="width: 150px;">
@@ -106,31 +113,26 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr>
-                      <th>Nom</th>
-                      <th>Categorie</th>
+                      <th>Produit</th>
+                      <th>Type de Sortie</th>
                       <th>Quantite</th>
-                      <th>Prix unitaire</th>
-                      <th>Image</th>
                       <th>Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php
-                      $produits = getProduit();
+                      $deta = getDetailsortie();
 
-                      if(!empty($produits) && is_array($produits))
+                      if(!empty($deta) && is_array($deta))
                       {
-                      foreach($produits as $key =>$value){
+                      foreach($deta as $key =>$value){
                         ?>
                           <tr>
                             <td><?=$value['nom']?></td>
-                            <td><?=$value['libelleCat']?></td>
+                            <td><?=$value['typeS']?></td>
                             <td><?=$value['quantite']?></td>
-                            <td><?=$value['prix']?></td>
-                            <td><img src="<?=$value['images']?>"/></td>
-                            <td><a href="?id=<?=$value['id']?>"><i class="bx bx-edit-alt"></i></a></td>
-                            <td><a href="../model/delete.php?supprimer=<?=$value['id']?>" onclick="return Confirmation();">supprimer</a></td>
-
+                            <td><a href="modifDetSortie.php?id=<?=$value['id']?>"><i class="bx bx-edit-alt"></i></a></td>
+                            
                           </tr>
                             <?php             
                             }

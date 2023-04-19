@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "connexion.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -8,10 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   
   if (empty($email) || empty($password)) {
-    echo "Veuillez remplir tous les champs.";
+    $_SESSION['error']= "Veuillez remplir tous les champs.";
+    header("location: ../views/home.php");
+
   } else {
    
-    $sql = "SELECT * FROM Client WHERE email='$email' AND mdp='$password'";
+    $sql = "SELECT * FROM client WHERE email='$email' AND mdp='$password'";
     $result = $bdd->prepare($sql);
     $result->execute(array($email, $password));
 
@@ -19,9 +22,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
       session_start();
       $_SESSION["email"] = $email;
-      header("location: dashboard.php");
+      header("location: ../views/dashboard.php");
     } else {
-      echo "L'email ou mot de passe incorrect.";
+      $_SESSION['error']= "L'email ou mot de passe incorrect.";
     }
 
     

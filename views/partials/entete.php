@@ -1,3 +1,5 @@
+	<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	
@@ -20,6 +22,8 @@
 		<link rel="stylesheet" href="../public/assets/css/lightcase.css">
 		<link rel="stylesheet" href="../public/assets/css/swiper.min.css">
 		<link rel="stylesheet" href="../public/assets/css/style.css">
+		<link rel="stylesheet" href="../admin/dist/css/styles.css">
+
 		
 	</head>
 	
@@ -94,6 +98,11 @@
 		</div>
 		<!-- Mobile Menu Ending Here -->
 
+		<!-- Modals include debut -->
+		<?php include('modal_inscription.php'); ?>
+		<?php include('modal_connexion.php'); ?>
+		<!-- Modals include fin-->
+
 		<!-- desktop menu start here -->
 		<header class="header-section">
 			<div class="header-top">
@@ -122,7 +131,7 @@
 										</div>
 										<div class="ht-add-content">
 											<span>Envoyer Mail </span>
-											<span class="d-block text-bold">nazifibabamoussa@gmail.com</span>
+											<span class="d-block text-bold">nazifi@gmail.com</span>
 										</div>
 									</li>
 									<li class="d-flex flex-wrap align-items-center">
@@ -140,6 +149,8 @@
 					</div>
 				</div>
 			</div>
+			<?php include('../admin/view/error_success.php'); ?>
+
 			<div class="header-bottom bg-theme">
 				<div class="header-area">
 					<div class="container">
@@ -172,8 +183,8 @@
                                         <li>
                                             <a href="#0">Se Connecter</a>
                                             <ul class="lab-ul">
-                                                <li><a href="inscription.php">Inscription</a></li>
-									            <li><a href="connexion.php">Connection</a></li>
+                                                <li><a href="#" data-toggle="modal" data-target="#Modal1">Inscription</a></li>
+									            <li><a href="#" data-toggle="modal" data-target="#Modal2">Connection</a></li>
                                             </ul>
                                         </li>
 									</ul>

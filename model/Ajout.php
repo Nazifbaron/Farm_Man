@@ -1,5 +1,7 @@
 <?php
+session_start();
 require_once("connexion.php");
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
@@ -12,37 +14,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conf_password = sha1($_POST['conf_password']);
 
 
-  if (empty($_POST['nom']) && empty($_POST['prenom']) && empty($_POST['telephone']) && empty($_POST['email']) && empty($_POST['ville'])
-    && empty($_POST['password']) && empty($_POST['conf_password'])) {
+  if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['telephone']) && !empty($_POST['email']) && !empty($_POST['ville'])
+    && !empty($_POST['password']) && !empty($_POST['conf_password'])) {
 
-    echo "Veuillez remplir tous les champs.";
-
-  } else {
-    
-    if ($password != $conf_password) {
-      echo "Les mots de passe ne correspondent pas.";
-    } else {
-      
-      $sql = 'SELECT * FROM Client WHERE email=? AND mdp=?';
-      $result = $bdd->prepare($sql);
-      $result->execute(array($email, $password));
-
-      if ($result->rowCount() > 0) {
-        echo "<script> alert('Cet utilisateur existe déjà');</script> .";
-        
+      if ($password != $conf_password) {
+        $_SESSION['error']= "Les mots de passe ne correspondent pas.";
       } else {
         
-        $sql = "INSERT INTO Client (nomCli, prenomCli, telephone, email, villeCli, mdp) VALUES ('$nom','$prenom','$telephone','$email','$ville', '$password')";
+        $sql = 'SELECT * FROM client WHERE email=? AND mdp=?';
         $result = $bdd->prepare($sql);
-        $result->execute(array($nom, $prenom ,$telephone, $email, $ville,$password));
+        $result->execute(array($email, $password));
   
-        echo "Inscription réussie.";
+        if ($result->rowCount() > 0) {
+          $_SESSION['error']= "Cet utilisateur existe déjà";
+          
+        } else {
+          
+          $sql = "INSERT INTO client(nomCli,prenomCli,telephone,email,villeCli,mdp) VALUES (?,?,?,?,?,?)";
+          $result = $bdd->prepare($sql);
+          $result->execute(array($nom, $prenom ,$telephone, $email, $ville,$password));
+    
+          $_SESSION['success']= "Inscription réussie.";
+        }
+  
+        // Fermer la connexion à la base de données
+        
       }
 
-      // Fermer la connexion à la base de données
-      
-    }
-  }
+  } else {
+
+    $_SESSION['error']= "Veuillez remplir tous les champs.";
+      }
 }
+header('location:../views/home.php');
+
 
 ?>

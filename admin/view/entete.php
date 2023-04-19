@@ -25,6 +25,9 @@
   <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="../plugins/summernote/summernote-bs4.min.css">
+  <!-- Propre style -->
+  <link rel="stylesheet" href="../dist/css/styles.css">
+ 
 
   <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" />
 
@@ -248,57 +251,36 @@
             
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="entre.php" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Tables
+                Categorie Entrées
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="../pages/tables/simple.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/tables/data.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>DataTables</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../pages/tables/jsgrid.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>jsGrid</p>
-                </a>
-              </li>
-            </ul>
           </li>
-          <li class="nav-header">EXAMPLES</li>
           <li class="nav-item">
-            <a href="../pages/calendar.html" class="nav-link">
+            <a href="sortie.php" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
-                Calendar
-                <span class="badge badge-info right">2</span>
+                Sortie
+                <span class="badge badge-info right"></span>
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="../pages/gallery.html" class="nav-link">
+            <a href="detailEntre.php" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                Gallery
+                 Entrés
               </p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="../pages/kanban.html" class="nav-link">
+            <a href="detailSortie.php" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
-                Kanban Board
+                Categorie Sortie
               </p>
             </a>
           </li>

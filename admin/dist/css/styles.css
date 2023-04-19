@@ -1,0 +1,24 @@
+.alert-success {
+    background-color: rgba(62, 206, 62, 0.952);
+    color: whitesmoke;
+    border-color: whitesmoke;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 900;
+    width: 300px;
+}
+
+.alert-error {
+    background-color: rgb(219, 35, 35);
+    color: whitesmoke;
+    border-color: whitesmoke;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 900;
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    border-radius: 10px;
+}

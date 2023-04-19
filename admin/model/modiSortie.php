@@ -8,19 +8,14 @@ function dd($elm=null){
    require_once "connexion.php";
    if(isset($_POST['envoie'])){
     
-        if(!empty($_POST['nom']) || !empty($_POST['categorie']) || !empty($_POST['quantite'])
-         || !empty($_POST['prix']) || !empty($_POST['id'])){
-          $nom=htmlspecialchars($_POST['nom']);
-          $categorie=htmlspecialchars($_POST['categorie']);
-          $quantite=htmlspecialchars($_POST['quantite']);
-          $prix=htmlspecialchars($_POST['prix']);
+        if(!empty($_POST['type']) || !empty($_POST['date'])){
+          $type=htmlspecialchars($_POST['type']);
+          $date=htmlspecialchars($_POST['date']);
           $id = htmlspecialchars($_POST['id_update']);
           
-          $sql='UPDATE produit SET nom=?, quantite=?, prix=?, Categorie_idCat=? WHERE id=?';
+          $sql='UPDATE sortie SET typeS=?, dateS=? WHERE idS=?';
           $req = $bdd->prepare($sql);
-          $req->execute(array($nom, $quantite, $prix, $categorie, $id));
-
-         var_dump($nom);
+          $req->execute(array($type, $date, $id));
           
         
           if ($req->rowCount() > 0) {
