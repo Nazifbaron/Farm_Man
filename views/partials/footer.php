@@ -136,4 +136,6 @@
 		<script src="../public/assets/js/isotope.pkgd.min.js"></script>
 		<script src="../public/assets/js/lightcase.js"></script>
 		<script src="../public/assets/js/functions.js"></script>
+		<script src="../public/assets/js/script.js"></script>
+
 	</body>

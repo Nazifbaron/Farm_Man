@@ -10,15 +10,15 @@
 
 		<!-- google fonts -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
-		<link rel="shortcut icon" type="image/x-icon" href="assets/images/x-icon/01.png">
+		<link rel="shortcut icon" type="image/x-icon" href="../public/assets/images/x-icon/01.png">
 
-		<link rel="stylesheet" href="assets/css/animate.css">
-		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
-		<link rel="stylesheet" href="assets/css/all.min.css">
-		<link rel="stylesheet" href="assets/css/icofont.min.css">
-		<link rel="stylesheet" href="assets/css/lightcase.css">
-		<link rel="stylesheet" href="assets/css/swiper.min.css">
-		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="../public/../public/assets/css/animate.css">
+		<link rel="stylesheet" href="../public/../public/assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../public/../public/assets/css/all.min.css">
+		<link rel="stylesheet" href="../public/../public/assets/css/icofont.min.css">
+		<link rel="stylesheet" href="../public/../public/assets/css/lightcase.css">
+		<link rel="stylesheet" href="../public/../public/assets/css/swiper.min.css">
+		<link rel="stylesheet" href="../public/../public/assets/css/style.css">
 	</head>
 
 	<body>
@@ -53,7 +53,7 @@
 		<div class="mobile-menu transparent-header">
 			<nav class="mobile-header">
 				<div class="header-logo">
-					<a href="index.html"><img src="assets/images/logo/01.png" alt="logo"></a>
+					<a href="index.php"><img src="../public/assets/images/logo/01.png" alt="logo"></a>
 				</div>
 				<div class="header-bar">
 					<span></span>
@@ -68,36 +68,36 @@
 							<li>
 								<a href="#0">Home</a>
 								<ul class="lab-ul">
-									<li><a href="index.html">Home Page One</a></li>
-									<li><a href="index-2.html">Home Page Two</a></li>
+									<li><a href="index.php">Home Page One</a></li>
+									<li><a href="index-2.php">Home Page Two</a></li>
 								</ul>
 							</li>
-							<li><a href="about.html">About</a></li>
+							<li><a href="about.php">About</a></li>
 							<li>
 								<a href="#0">Pages</a>
 								<ul class="lab-ul">
-									<li><a href="team.html">Team Membar</a></li>
-									<li><a href="faq-page.html">Faq Page</a></li>
-									<li><a href="404.html">404 Page</a></li>
+									<li><a href="team.php">Team Membar</a></li>
+									<li><a href="faq-page.php">Faq Page</a></li>
+									<li><a href="404.php">404 Page</a></li>
 								</ul>
 							</li>
 							<li>
 								<a href="#0">Blog</a>
 								<ul class="lab-ul">
-									<li><a href="blog.html">Blog Right Sidebar</a></li>
-									<li><a href="blog-ls.html">Blog left Sidebar</a></li>
-									<li><a href="blog-single.html">Blog Details</a></li>
+									<li><a href="blog.php">Blog Right Sidebar</a></li>
+									<li><a href="blog-ls.php">Blog left Sidebar</a></li>
+									<li><a href="blog-single.php">Blog Details</a></li>
 								</ul>
 							</li>
 							<li class="active">
 								<a href="#0">Shop</a>
 								<ul class="lab-ul">
-									<li><a href="product-page.html">Products Page</a></li>
-									<li><a href="product-single.html">Products Details</a></li>
-									<li class="active"><a href="cart-page.html">Cart Page</a></li>
+									<li><a href="product-page.php">Products Page</a></li>
+									<li><a href="product-single.php">Products Details</a></li>
+									<li class="active"><a href="cart-page.php">Cart Page</a></li>
 								</ul>
 							</li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="contact.php">Contact</a></li>
 						</ul>
 					</div>
 				</div>
@@ -112,7 +112,7 @@
 					<div class="row justify-content-center align-items-center">
 						<div class="col-lg-5 col-12">
 							<div class="logo py-2">
-								<a href="index.html"><img src="assets/images/logo/01.png" alt="logo"></a>
+								<a href="index.php"><img src="../public/assets/images/logo/01.png" alt="logo"></a>
 							</div>
 						</div>
 						<div class="col-lg-7 col-12">
@@ -120,7 +120,7 @@
 								<ul class="lab-ul d-flex flex-wrap justify-content-end">
 									<li class="d-flex flex-wrap align-items-center">
 										<div class="ht-add-thumb mr-2">
-											<img src="assets/images/header/01.png" alt="address">
+											<img src="../public/assets/images/header/01.png" alt="address">
 										</div>
 										<div class="ht-add-content">
 											<span>72AH, Victoria,</span>
@@ -129,7 +129,7 @@
 									</li>
 									<li class="d-flex flex-wrap align-items-center">
 										<div class="ht-add-thumb mr-2">
-											<img src="assets/images/header/02.png" alt="email">
+											<img src="../public/assets/images/header/02.png" alt="email">
 										</div>
 										<div class="ht-add-content">
 											<span>Send Mail </span>
@@ -138,7 +138,7 @@
 									</li>
 									<li class="d-flex flex-wrap align-items-center">
 										<div class="ht-add-thumb mr-2">
-											<img src="assets/images/header/03.png" alt="call">
+											<img src="../public/assets/images/header/03.png" alt="call">
 										</div>
 										<div class="ht-add-content">
 											<span>Make Call </span>
@@ -159,48 +159,48 @@
 							<div class="main-area w-100">
 								<div class="main-menu d-flex flex-wrap align-items-center justify-content-between w-100">
 									<div class="logo">
-										<a href="index.html"><img src="assets/images/logo/02.png" alt="logo"></a>
+										<a href="index.php"><img src="../public/assets/images/logo/02.png" alt="logo"></a>
 									</div>
 									<ul class="lab-ul">
 										<li class="active">
-											<a href="index.html">Home</a>
+											<a href="index.php">Home</a>
 											<ul class="lab-ul">
-												<li><a href="index.html">Home Page One</a></li>
-												<li><a href="index-2.html">Home Page Two</a></li>
+												<li><a href="index.php">Home Page One</a></li>
+												<li><a href="index-2.php">Home Page Two</a></li>
 											</ul>
 										</li>
-										<li><a href="about.html">About</a></li>
+										<li><a href="about.php">About</a></li>
 										<li>
 											<a href="#0">Pages</a>
 											<ul class="lab-ul">
-												<li><a href="team.html">Team Membar</a></li>
-												<li><a href="faq-page.html">Faq Page</a></li>
-												<li><a href="404.html">404 Page</a></li>
+												<li><a href="team.php">Team Membar</a></li>
+												<li><a href="faq-page.php">Faq Page</a></li>
+												<li><a href="404.php">404 Page</a></li>
 											</ul>
 										</li>
 										<li>
 											<a href="#0">Blog</a>
 											<ul class="lab-ul">
-												<li><a href="blog.html">Blog</a></li>
-												<li><a href="blog-single.html">Blog Details</a></li>
+												<li><a href="blog.php">Blog</a></li>
+												<li><a href="blog-single.php">Blog Details</a></li>
 											</ul>
 										</li>
 										<li>
 											<a href="#0">Shop</a>
 											<ul class="lab-ul">
-												<li><a href="product-page.html">Products Page</a></li>
-												<li><a href="product-single.html">Products Details</a></li>
-												<li><a href="cart-page.html" class="active">Cart Page</a></li>
+												<li><a href="product-page.php">Products Page</a></li>
+												<li><a href="product-single.php">Products Details</a></li>
+												<li><a href="cart-page.php" class="active">Cart Page</a></li>
 											</ul>
 										</li>
 										<li>
 											<a href="#0">Gallery</a>
 											<ul class="lab-ul">
-												<li><a href="gallery-1.html">Gallery 1</a></li>
-												<li><a href="gallery-2.html">Gallery 2</a></li>
+												<li><a href="gallery-1.php">Gallery 1</a></li>
+												<li><a href="gallery-2.php">Gallery 2</a></li>
 											</ul>
 										</li>
-										<li><a href="contact.html">Contact</a></li>
+										<li><a href="contact.php">Contact</a></li>
 									</ul>
 									<ul class="lab-ul search-cart">
 										<li>
@@ -209,7 +209,7 @@
 												<div class="cart-content">
 													<div class="cart-item">
 														<div class="cart-img">
-															<a href="#"><img src="assets/images/products/product/01.png"
+															<a href="#"><img src="../public/assets/images/products/product/01.png"
 																	alt="cart"></a>
 														</div>
 														<div class="cart-des">
@@ -222,7 +222,7 @@
 													</div>
 													<div class="cart-item">
 														<div class="cart-img">
-															<a href="#"><img src="assets/images/products/product/02.png"
+															<a href="#"><img src="../public/assets/images/products/product/02.png"
 																	alt="cart"></a>
 														</div>
 														<div class="cart-des">
@@ -267,7 +267,7 @@
 				<div class="page-header-content-area">
 					<h4 class="ph-title">Poultry Farm Shop</h4>
 					<ul class="lab-ul">
-						<li><a href="index.html">Home</a></li>
+						<li><a href="index.php">Home</a></li>
 						<li><a class="active">Shop Cart</a></li>
 					</ul>
 				</div>
@@ -294,7 +294,7 @@
 								<tr>
 									<td class="product-item">
 										<div class="p-thumb">
-											<a href="#"><img src="assets/images/product/01.jpg" alt="product"></a>
+											<a href="#"><img src="../public/assets/images/product/01.jpg" alt="product"></a>
 										</div>
 										<div class="p-content">
 											<a href="#">Product Text Here</a>
@@ -310,13 +310,13 @@
 									</td>
 									<td>$750</td>
 									<td>
-										<a href="#"><img src="assets/images/del.png" alt="product"></a>
+										<a href="#"><img src="../public/assets/images/del.png" alt="product"></a>
 									</td>
 								</tr>
 								<tr>
 									<td class="product-item">
 										<div class="p-thumb">
-											<a href="#"><img src="assets/images/product/02.jpg" alt="product"></a>
+											<a href="#"><img src="../public/assets/images/product/02.jpg" alt="product"></a>
 										</div>
 										<div class="p-content">
 											<a href="#">Product Text Here</a>
@@ -332,13 +332,13 @@
 									</td>
 									<td>$500</td>
 									<td>
-										<a href="#"><img src="assets/images/del.png" alt="product"></a>
+										<a href="#"><img src="../public/assets/images/del.png" alt="product"></a>
 									</td>
 								</tr>
 								<tr>
 									<td class="product-item">
 										<div class="p-thumb">
-											<a href="#"><img src="assets/images/product/03.jpg" alt="product"></a>
+											<a href="#"><img src="../public/assets/images/product/03.jpg" alt="product"></a>
 										</div>
 										<div class="p-content">
 											<a href="#">Product Text Here</a>
@@ -354,13 +354,13 @@
 									</td>
 									<td>$100</td>
 									<td>
-										<a href="#"><img src="assets/images/del.png" alt="product"></a>
+										<a href="#"><img src="../public/assets/images/del.png" alt="product"></a>
 									</td>
 								</tr>
 								<tr>
 									<td class="product-item">
 										<div class="p-thumb">
-											<a href="#"><img src="assets/images/product/04.jpg" alt="product"></a>
+											<a href="#"><img src="../public/assets/images/product/04.jpg" alt="product"></a>
 										</div>
 										<div class="p-content">
 											<a href="#">Product Text Here</a>
@@ -376,13 +376,13 @@
 									</td>
 									<td>$200</td>
 									<td>
-										<a href="#"><img src="assets/images/del.png" alt="product"></a>
+										<a href="#"><img src="../public/assets/images/del.png" alt="product"></a>
 									</td>
 								</tr>
 								<tr>
 									<td class="product-item">
 										<div class="p-thumb">
-											<a href="#"><img src="assets/images/product/05.jpg" alt="product"></a>
+											<a href="#"><img src="../public/assets/images/product/05.jpg" alt="product"></a>
 										</div>
 										<div class="p-content">
 											<a href="#">Product Text Here</a>
@@ -398,7 +398,7 @@
 									</td>
 									<td>$400</td>
 									<td>
-										<a href="#"><img src="assets/images/del.png" alt="product"></a>
+										<a href="#"><img src="../public/assets/images/del.png" alt="product"></a>
 									</td>
 								</tr>
 							</tbody>
@@ -476,14 +476,14 @@
 		<footer>
 			<div class="footer-top relative padding-tb bg-ash relative">
 				<div class="shape-images">
-					<img src="assets/images/shape-img/01.png" alt="shape-images">
+					<img src="../public/assets/images/shape-img/01.png" alt="shape-images">
 				</div>
 				<div class="container">
 					<div class="section-wrapper row">
 						<div class="col-xl-3 col-md-6">
 							<div class="post-item">
 								<div class="footer-logo">
-									<img src="assets/images/logo/01.png" alt="footer-logo">
+									<img src="../public/assets/images/logo/01.png" alt="footer-logo">
 								</div>
 								<p>Conveniently customizec web services aggregate frictionle internet withouevs Conveniently customizec. </p>
 								<p>Enthusiastically scale synergistic technologies for leveraged with technology quickly.</p>
@@ -532,7 +532,7 @@
 								<div class="lab-ul footer-post">
 									<div class="media mb-3">
 										<div class="fp-thumb mr-3">
-											<img src="assets/images/products/product/01.png" alt="recent-post">
+											<img src="../public/assets/images/products/product/01.png" alt="recent-post">
 										</div>
 										<div class="media-body">
 											<a href="#">
@@ -543,7 +543,7 @@
 									</div>
 									<div class="media mb-3">
 										<div class="fp-thumb mr-3">
-											<img src="assets/images/products/product/02.png" alt="recent-post">
+											<img src="../public/assets/images/products/product/02.png" alt="recent-post">
 										</div>
 										<div class="media-body">
 											<a href="#">
@@ -562,22 +562,22 @@
 								</div>
 								<div class="lab-ul footer-gellary">
 									<figure class="figure">
-										<a href="assets/images/gallery/01.jpg" data-rel="lightcase:myCollection:slideshow"><img src="assets/images/gallery/01.jpg" class="img-fluid rounded" alt="footer-gellary"></a>
+										<a href="../public/assets/images/gallery/01.jpg" data-rel="lightcase:myCollection:slideshow"><img src="../public/assets/images/gallery/01.jpg" class="img-fluid rounded" alt="footer-gellary"></a>
 									</figure>
 									<figure class="figure">
-										<a href="assets/images/gallery/02.jpg" data-rel="lightcase:myCollection:slideshow"><img src="assets/images/gallery/02.jpg" class="img-fluid rounded" alt="footer-gellary"></a>
+										<a href="../public/assets/images/gallery/02.jpg" data-rel="lightcase:myCollection:slideshow"><img src="../public/assets/images/gallery/02.jpg" class="img-fluid rounded" alt="footer-gellary"></a>
 									</figure>
 									<figure class="figure">
-										<a href="assets/images/gallery/03.jpg" data-rel="lightcase:myCollection:slideshow"><img src="assets/images/gallery/03.jpg" class="img-fluid rounded" alt="footer-gellary"></a>
+										<a href="../public/assets/images/gallery/03.jpg" data-rel="lightcase:myCollection:slideshow"><img src="../public/assets/images/gallery/03.jpg" class="img-fluid rounded" alt="footer-gellary"></a>
 									</figure>
 									<figure class="figure">
-										<a href="assets/images/gallery/04.jpg" data-rel="lightcase:myCollection:slideshow"><img src="assets/images/gallery/04.jpg" class="img-fluid rounded" alt="footer-gellary"></a>
+										<a href="../public/assets/images/gallery/04.jpg" data-rel="lightcase:myCollection:slideshow"><img src="../public/assets/images/gallery/04.jpg" class="img-fluid rounded" alt="footer-gellary"></a>
 									</figure>
 									<figure class="figure">
-										<a href="assets/images/gallery/05.jpg" data-rel="lightcase:myCollection:slideshow"><img src="assets/images/gallery/05.jpg" class="img-fluid rounded" alt="footer-gellary"></a>
+										<a href="../public/assets/images/gallery/05.jpg" data-rel="lightcase:myCollection:slideshow"><img src="../public/assets/images/gallery/05.jpg" class="img-fluid rounded" alt="footer-gellary"></a>
 									</figure>
 									<figure class="figure">
-										<a href="assets/images/gallery/06.jpg" data-rel="lightcase:myCollection:slideshow"><img src="assets/images/gallery/06.jpg" class="img-fluid rounded" alt="footer-gellary"></a>
+										<a href="../public/assets/images/gallery/06.jpg" data-rel="lightcase:myCollection:slideshow"><img src="../public/assets/images/gallery/06.jpg" class="img-fluid rounded" alt="footer-gellary"></a>
 									</figure>
 								</div>
 							</div>
@@ -588,7 +588,7 @@
 			<div class="footer-bottom">
 				<div class="container">
 					<div class="section-wrapper">
-						<p class="text-center">&copy; 2020 <a href="index.html">Poultry Farm</a>.All Rights Reserved By <a href="https://themeforest.net/user/labartisan" target="_blank">LabArtisan</a></p>
+						<p class="text-center">&copy; 2020 <a href="index.php">Poultry Farm</a>.All Rights Reserved By <a href="https://themeforest.net/user/labartisan" target="_blank">LabArtisan</a></p>
 					</div>
 				</div>
 			</div>
@@ -600,17 +600,17 @@
 		<!-- scrollToTop ending here -->
 
 
-		<script src="assets/js/jquery.js"></script>
-		<script src="assets/js/fontawesome.min.js"></script>
-		<script src="assets/js/waypoints.min.js"></script>
-		<script src="assets/js/bootstrap.min.js"></script>
-		<script src="assets/js/swiper.min.js"></script>
-		<script src="assets/js/jquery.countdown.min.js"></script>
-		<script src="assets/js/jquery.counterup.min.js"></script>
-		<script src="assets/js/isotope.pkgd.min.js"></script>
-		<script src="assets/js/lightcase.js"></script>
-		<script src="assets/js/functions.js"></script>
+		<script src="../public/assets/js/jquery.js"></script>
+		<script src="../public/assets/js/fontawesome.min.js"></script>
+		<script src="../public/assets/js/waypoints.min.js"></script>
+		<script src="../public/assets/js/bootstrap.min.js"></script>
+		<script src="../public/assets/js/swiper.min.js"></script>
+		<script src="../public/assets/js/jquery.countdown.min.js"></script>
+		<script src="../public/assets/js/jquery.counterup.min.js"></script>
+		<script src="../public/assets/js/isotope.pkgd.min.js"></script>
+		<script src="../public/assets/js/lightcase.js"></script>
+		<script src="../public/assets/js/functions.js"></script>
 	</body>
 
-<!-- Mirrored from labartisan.net/demo/PoultryFarm/poultry-farm/cart-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Mar 2023 16:31:29 GMT -->
+<!-- Mirrored from labartisan.net/demo/PoultryFarm/poultry-farm/cart-page.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Mar 2023 16:31:29 GMT -->
 </html>
