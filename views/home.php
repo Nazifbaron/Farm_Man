@@ -1,5 +1,6 @@
 <?php
 	require_once "../views/partials/entete.php";
+	require_once "../admin/model/function.php";
 ?>
 		<!-- desktop menu ending here -->
 
@@ -121,35 +122,14 @@
 					<div class="col-12">
 						<div class="section-wrapper">
 							<div class="row justify-content-center">
-								<div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-									<div class="card mb-4 text-center bg-ash border-none relative">
-										<div class="addcart-overlay">
-											<div class="addcart-content">
-												<div class="addcart-icon">
-													<a href="#"><i class="far fa-heart"></i></a>
-													<a href="#"><i class="fas fa-sync-alt"></i></a>
-													<a href="../public/assets/images/product/01.php" data-rel="lightcase"><i class="fas fa-search"></i></a>
-												</div>
-												<a href="#" class="lab-btn d-inline-b">Ajouter au panier</a>
-											</div>
-										</div>
-										<img src="../public/assets/images/products/product/01.png" class="card-img-top mb-2" alt="product">
-										<div class="card-body">
-											<div class="rating mb-2">
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-											</div>
-											<a href="#">
-												<h6 class="card-title">Œufs Marron Clair</h6>
-											</a>
-											<h6 class="product-price"> <span class="d-price">$29.99</span> <del>$49.99</del>
-											</h6>
-										</div>
-									</div>
-								</div>
+							<?php
+                      $produits = getProduit();
+
+                      if(!empty($produits) && is_array($produits))
+                      {
+                     foreach($produits as $key => $value){ 
+                        ?>
+							
 								<div class="col-xl-3 col-lg-4 col-sm-6 col-12">
 									<div class="card mb-4 text-center bg-ash border-none relative">
 										<div class="addcart-overlay">
@@ -162,7 +142,7 @@
 												<a href="#" class="lab-btn d-inline-b" data-toggle="modal">Ajouter au panier</a>
 											</div>
 										</div>
-										<img src="../public/assets/images/products/product/02.png" class="card-img-top mb-2"
+										<img src="../admin/<?=$value['images']?>" class="card-img-top mb-2"
 											alt="product">
 										<div class="card-body">
 											<div class="rating mb-2">
@@ -173,192 +153,18 @@
 												<span><a href="#"><i class="far fa-star"></i></a></span>
 											</div>
 											<a href="#">
-												<h6 class="card-title">Petit Poulet Grillagé</h6>
+												<h6 class="card-title"><?=$value['nom']?></h6>
 											</a>
-											<h6 class="product-price"> <span class="d-price">$29.99</span> <del>$49.99</del>
+											<h6 class="product-price"> <span class="d-price"><?=$value['prix']?></span> <del>$49.99</del>
 											</h6>
 										</div>
 									</div>
 								</div>
-								<div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-									<div class="card mb-4 text-center bg-ash border-none relative">
-										<div class="addcart-overlay">
-											<div class="addcart-content">
-												<div class="addcart-icon">
-													<a href="#"><i class="far fa-heart"></i></a>
-													<a href="#"><i class="fas fa-sync-alt"></i></a>
-													<a href="../public/assets/images/product/01.php" data-rel="lightcase"><i class="fas fa-search"></i></a>
-												</div>
-												<a href="#" class="lab-btn d-inline-b">Ajouter au panier</a>
-											</div>
-										</div>
-										<img src="../public/assets/images/products/product/03.png" class="card-img-top mb-2"
-											alt="product">
-										<div class="card-body">
-											<div class="rating mb-2">
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-											</div>
-											<a href="#">
-												<h6 class="card-title">Œufs Blancs Bruns</h6>
-											</a>
-											<h6 class="product-price"> <span class="d-price">$29.99</span> <del>$49.99</del>
-											</h6>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-									<div class="card mb-4 text-center bg-ash border-none relative">
-										<div class="addcart-overlay">
-											<div class="addcart-content">
-												<div class="addcart-icon">
-													<a href="#"><i class="far fa-heart"></i></a>
-													<a href="#"><i class="fas fa-sync-alt"></i></a>
-													<a href="assets/images/product/01.php" data-rel="lightcase"><i class="fas fa-search"></i></a>
-												</div>
-												<a href="#" class="lab-btn d-inline-b">Ajouter au panier</a>
-											</div>
-										</div>
-										<img src="../public/assets/images/products/product/04.png" class="card-img-top mb-2"
-											alt="product">
-										<div class="card-body">
-											<div class="rating mb-2">
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-											</div>
-											<a href="#">
-												<h6 class="card-title">Poulet à Griller</h6>
-											</a>
-											<h6 class="product-price"> <span class="d-price">$29.99</span> <del>$49.99</del>
-											</h6>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-									<div class="card mb-4 text-center bg-ash border-none relative">
-										<div class="addcart-overlay">
-											<div class="addcart-content">
-												<div class="addcart-icon">
-													<a href="#"><i class="far fa-heart"></i></a>
-													<a href="#"><i class="fas fa-sync-alt"></i></a>
-													<a href="../public/assets/images/product/01.php" data-rel="lightcase"><i class="fas fa-search"></i></a>
-												</div>
-												<a href="#" class="lab-btn d-inline-b">Ajouter au panier</a>
-											</div>
-										</div>
-										<img src="../public/assets/images/products/product/05.png" class="card-img-top mb-2"
-											alt="product">
-										<div class="card-body">
-											<div class="rating mb-2">
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-											</div>
-											<a href="#">
-												<h6 class="card-title">Poulet Frais</h6>
-											</a>
-											<h6 class="product-price"> <span class="d-price">$29.99</span> <del>$49.99</del>
-											</h6>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-									<div class="card mb-4 text-center bg-ash border-none relative">
-										<div class="addcart-overlay">
-											<div class="addcart-content">
-												<div class="addcart-icon">
-													<a href="#"><i class="far fa-heart"></i></a>
-													<a href="#"><i class="fas fa-sync-alt"></i></a>
-													<a href="../public/assets/images/product/01.php" data-rel="lightcase"><i class="fas fa-search"></i></a>
-												</div>
-												<a href="#" class="lab-btn d-inline-b">Ajouter au panier</a>
-											</div>
-										</div>
-										<img src="../public/assets/images/products/product/06.png" class="card-img-top mb-2"
-											alt="product">
-										<div class="card-body">
-											<div class="rating mb-2">
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-											</div>
-											<a href="#">
-												<h6 class="card-title">Poulet Cru à Griller</h6>
-											</a>
-											<h6 class="product-price"> <span class="d-price">$29.99</span> <del>$49.99</del>
-											</h6>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-									<div class="card mb-4 text-center bg-ash border-none relative">
-										<div class="addcart-overlay">
-											<div class="addcart-content">
-												<div class="addcart-icon">
-													<a href="#"><i class="far fa-heart"></i></a>
-													<a href="#"><i class="fas fa-sync-alt"></i></a>
-													<a href="../public/assets/images/product/01.php" data-rel="lightcase"><i class="fas fa-search"></i></a>
-												</div>
-												<a href="" class="lab-btn d-inline-b">Ajouter au panier</a>
-											</div>
-										</div>
-										<img src="../public/assets/images/products/product/03.png" class="card-img-top mb-2"
-											alt="product">
-										<div class="card-body">
-											<div class="rating mb-2">
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-											</div>
-											<a href="#">
-												<h6 class="card-title">Œufs blancs bruns</h6>
-											</a>
-											<h6 class="product-price"> <span class="d-price">$29.99</span> <del>$49.99</del>
-											</h6>
-										</div>
-									</div>
-								</div>
-								<div class="col-xl-3 col-lg-4 col-sm-6 col-12">
-									<div class="card mb-4 text-center bg-ash border-none relative">
-										<div class="addcart-overlay">
-											<div class="addcart-content">
-												<div class="addcart-icon">
-													<a href="#"><i class="far fa-heart"></i></a>
-													<a href="#"><i class="fas fa-sync-alt"></i></a>
-													<a href="../public/assets/images/product/01.php" data-rel="lightcase"><i class="fas fa-search"></i></a>
-												</div>
-												<a href="#" class="lab-btn d-inline-b">Ajouter au panier</a>
-											</div>
-										</div>
-										<img src="../public/assets/images/products/product/01.png" class="card-img-top mb-2"
-											alt="product">
-										<div class="card-body">
-											<div class="rating mb-2">
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-												<span><a href="#"><i class="far fa-star"></i></a></span>
-											</div>
-											<a href="#">
-												<h6 class="card-title">Œufs Marron Clair</h6>
-											</a>
-											<h6 class="product-price"> <span class="">$29.99</span> <del>$49.99</del></h6>
-										</div>
-									</div>
-								</div>
+								<?php             
+                            }
+                        }
+                     ?>
+							
 							</div>
 							<div class="text-center mt-3">
 								<a href="#" class="lab-btn"><span>Acheter</span></a>

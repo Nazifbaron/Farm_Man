@@ -127,7 +127,7 @@
                             <td><?=$value['libelleCat']?></td>
                             <td><?=$value['quantite']?></td>
                             <td><?=$value['prix']?></td>
-                            <td><img src="<?=$value['images']?>"/></td>
+                            <td><img src="../<?=$value['images']?>" width="100px" height="100px"/></td>
                             <td><a href="?id=<?=$value['id']?>"><i class="bx bx-edit-alt"></i></a></td>
                             <td><a href="../model/delete.php?supprimer=<?=$value['id']?>" onclick="return Confirmation();">supprimer</a></td>
 

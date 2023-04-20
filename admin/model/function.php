@@ -197,8 +197,9 @@ function file_upload($dir, $file)
                
               
                 $name = $_FILES[$file]['name']; // get the real file name
+                // ../medias/nomfichier.png
                 $urlf = $dir . $name; 
-                move_uploaded_file($temp_name, $dir . $name); // upload the file
+                move_uploaded_file($temp_name, "../". $dir . $name); // upload the file
                 return $urlf;
                 
             } else {

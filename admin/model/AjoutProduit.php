@@ -17,7 +17,7 @@ function dd($elm=null){
             $categorie=htmlspecialchars($_POST['categorie']);
             $quantite=htmlspecialchars($_POST['quantite']);
             $prix=htmlspecialchars($_POST['prix']);
-            $img=file_upload('../medias/', 'img');
+            $img=file_upload('medias/', 'img');
 
           
 
