@@ -123,7 +123,7 @@
 						<div class="section-wrapper">
 							<div class="row justify-content-center">
 							<?php
-                      $produits = getProduit();
+                      $produits = getProduits();
 
                       if(!empty($produits) && is_array($produits))
                       {
@@ -139,7 +139,8 @@
 													<a href="#"><i class="fas fa-sync-alt"></i></a>
 													<a href="../public/assets/images/product/01.php" data-rel="lightcase"><i class="fas fa-search"></i></a>
 												</div>
-												<button onclick="addToCart(<?=$value['id']?>,1, '<?=$value['nom']?>')" class="lab-btn d-inline-b" data-toggle="modal">Ajouter au panier</button>
+												<button onclick="addToCart('<?=$value['nom']?>', '<?=$value['prix']?>', 1 , '<?=$value['images']?>', '<?=$value['id']?>')" class="lab-btn d-inline-b" data-toggle="modal">Ajouter au panier</button>
+												<!--<button onclick="addToCart(<?=$value['nomProduit']?>, <?=$value['prixUnitaire']?>, 1 )" class="lab-btn d-inline-b" data-toggle="modal">Ajouter au panier</button>-->
 											</div>
 										</div>
 										<img src="../admin/<?=$value['images']?>" class="card-img-top mb-2"

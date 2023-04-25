@@ -59,6 +59,18 @@
  
    
 }
+function getProduits(){
+  
+  $sql = 'SELECT p.id,nom,quantite,prix,libelleCat, images FROM produit as p INNER JOIN categorie as c ON p.Categorie_idCat = c.id LIMIT 8 '; 
+
+  $req = $GLOBALS['bdd']->prepare($sql);
+
+  $req->execute();
+
+  return $req->fetchAll();
+
+ 
+}
 
 function getProduitById($id=null){
 

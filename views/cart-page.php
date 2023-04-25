@@ -21,7 +21,7 @@
 		<link rel="stylesheet" href="../public/../public/assets/css/style.css">
 	</head>
 
-	<body>
+	<body onload="showCartTable()">
 
 		<!-- preloader start here -->
 		<div class="preloader">
@@ -290,30 +290,14 @@
 									<th>Edit</th>
 								</tr>
 							</thead>
-							<tbody>
-								<tr>
-									<td class="product-item">
-										<div class="p-thumb">
-											<a href="#"><img src="../public/assets/images/product/01.jpg" alt="product"></a>
-										</div>
-										<div class="p-content">
-											<a href="#">Product Text Here</a>
-										</div>
-									</td>
-									<td>$250</td>
-									<td>
-										<div class="cart-plus-minus">
-											<div class="dec qtybutton">-</div>
-											<input class="cart-plus-minus-box" type="text" name="qtybutton" value="3">
-											<div class="inc qtybutton">+</div>
-										</div>
-									</td>
-									<td>$750</td>
-									<td>
-										<a href="#"><img src="../public/assets/images/del.png" alt="product"></a>
-									</td>
-								</tr>
-								<tr>
+							<tbody id="cartTable">
+								
+
+
+
+								
+							
+								<!--<tr>
 									<td class="product-item">
 										<div class="p-thumb">
 											<a href="#"><img src="../public/assets/images/product/02.jpg" alt="product"></a>
@@ -400,7 +384,7 @@
 									<td>
 										<a href="#"><img src="../public/assets/images/del.png" alt="product"></a>
 									</td>
-								</tr>
+								</tr>-->
 							</tbody>
 						</table>
 					</div>
@@ -451,7 +435,7 @@
 										<ul>
 											<li>
 												<span class="pull-left">Cart Subtotal</span>
-												<p class="pull-right">$ 0.00</p>
+												<p class="pull-right" id="tprice"></p>
 											</li>
 											<li>
 												<span class="pull-left">Shipping and Handling</span>
@@ -605,6 +589,7 @@
 		<script src="../public/assets/js/waypoints.min.js"></script>
 		<script src="../public/assets/js/bootstrap.min.js"></script>
 		<script src="../public/assets/js/swiper.min.js"></script>
+		<script src="../public/assets/js/script.js"></script>
 		<script src="../public/assets/js/jquery.countdown.min.js"></script>
 		<script src="../public/assets/js/jquery.counterup.min.js"></script>
 		<script src="../public/assets/js/isotope.pkgd.min.js"></script>

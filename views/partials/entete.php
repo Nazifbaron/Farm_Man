@@ -1,18 +1,17 @@
 	<?php session_start(); ?>
 
-<!DOCTYPE html>
-<html lang="en">
-	
-<!-- Mirrored from labartisan.net/demo/PoultryFarm/poultry-farm/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Mar 2023 16:30:41 GMT -->
-<head>
+	<!DOCTYPE html>
+	<html lang="en">
+
+	<!-- Mirrored from labartisan.net/demo/PoultryFarm/poultry-farm/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Mar 2023 16:30:41 GMT -->
+
+	<head>
 		<title>Elevage de Volaille</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- google fonts -->
-		<link
-			href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap"
-			rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&amp;display=swap" rel="stylesheet">
 		<link rel="shortcut icon" type="image/x-icon" href="assets/images/x-icon/01.png">
 
 		<link rel="stylesheet" href="../public/assets/css/bootstrap.min.css">
@@ -24,10 +23,10 @@
 		<link rel="stylesheet" href="../public/assets/css/style.css">
 		<link rel="stylesheet" href="../admin/dist/css/styles.css">
 
-		
+
 	</head>
-	
-	<body>
+
+	<body onload="showCartPreview()">
 
 		<!-- preloader start here -->
 		<div class="preloader">
@@ -40,7 +39,7 @@
 		</div>
 		<!-- preloader ending here -->
 
-		
+
 		<!--search area-->
 		<div class="search-input">
 			<div class="search-close">
@@ -55,8 +54,8 @@
 		</div>
 		<!-- search area -->
 
-		
-		
+
+
 		<div class="mobile-menu transparent-header">
 			<nav class="mobile-header">
 				<div class="header-logo">
@@ -72,9 +71,9 @@
 				<div class="mobile-menu-area">
 					<div class="mobile-menu-area-inner">
 						<ul class="lab-ul">
-							
-							
-							
+
+
+
 							<li>
 								<a href="#0">Boutique</a>
 								<ul class="lab-ul">
@@ -84,13 +83,13 @@
 								</ul>
 							</li>
 							<li><a href="../app/core/views/contact.php">Contact</a></li>
-                            <li>
-                                <a href="#0">Se Connecter</a>
-                                <ul class="lab-ul">
-                                    <li><a href="product-page.php">Inscription</a></li>
+							<li>
+								<a href="#0">Se Connecter</a>
+								<ul class="lab-ul">
+									<li><a href="product-page.php">Inscription</a></li>
 									<li><a href="product-single.php">Connect</a></li>
-                                </ul>
-                            </li>
+								</ul>
+							</li>
 						</ul>
 					</div>
 				</div>
@@ -161,9 +160,9 @@
 										<a href="index.php"><img src="../public/assets/images/logo/02.png" alt="logo"></a>
 									</div>
 									<ul class="lab-ul">
-										
-										
-										
+
+
+
 										<li>
 											<a href="#0">Boutique</a>
 											<ul class="lab-ul">
@@ -176,52 +175,29 @@
 											<a href="#0">Gallery</a>
 											<ul class="lab-ul">
 												<li><a href="gallery-1.php">Gallery 1</a></li>
-										
+
 											</ul>
 										</li>
 										<li><a href="../contact.php">Contact</a></li>
-                                        <li>
-                                            <a href="#0">Se Connecter</a>
-                                            <ul class="lab-ul">
-                                                <li><a href="#" data-toggle="modal" data-target="#Modal1">Inscription</a></li>
-									            <li><a href="#" data-toggle="modal" data-target="#Modal2">Connection</a></li>
-                                            </ul>
-                                        </li>
+										<li>
+											<a href="#0">Se Connecter</a>
+											<ul class="lab-ul">
+												<li><a href="#" data-toggle="modal" data-target="#Modal1">Inscription</a></li>
+												<li><a href="#" data-toggle="modal" data-target="#Modal2">Connection</a></li>
+											</ul>
+										</li>
 									</ul>
 									<ul class="lab-ul search-cart">
 										<li>
 											<div class="cart-option">
 												<i class="icofont-cart-alt"></i>
 												<div class="cart-content">
-													<div class="cart-item">
-														<div class="cart-img">
-															<a href="#"><img src="../public/assets/images/products/product/01.png"
-																	alt="cart"></a>
-														</div>
-														<div class="cart-des">
-															<a href="#">Product Title Here</a>
-															<p>$20.00</p>
-														</div>
-														<div class="cart-btn">
-															<a href="#"><i class="icofont-close-circled"></i></a>
-														</div>
-													</div>
-													<div class="cart-item">
-														<div class="cart-img">
-															<a href="#"><img src="../public/assets/images/products/product/02.png"
-																	alt="cart"></a>
-														</div>
-														<div class="cart-des">
-															<a href="#">Product Title Here</a>
-															<p>$20.00</p>
-														</div>
-														<div class="cart-btn">
-															<a href="#"><i class="icofont-close-circled"></i></a>
-														</div>
+													<div  id='previewCart'>
+
 													</div>
 													<div class="cart-bottom">
 														<div class="cart-subtotal">
-															<p>Total: <b class="float-right">$40.00</b></p>
+															<p>Total: <b class="float-right"><span id="price"></span></b></p>
 														</div>
 														<div class="cart-action">
 															<a href="#" class="lab-btn"><span>View Cart</span></a>

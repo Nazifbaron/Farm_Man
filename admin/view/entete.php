@@ -223,21 +223,15 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="produit.php" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Entrer les produits</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="produit.php" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Voir les produits</p>
-                </a>
-              </li>
-              
-            </ul>
+          </li>
+          <li class="nav-item menu-open">
+            <a href="produits.php" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Produit afficher à l'accueille
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
           </li>
           
           <li class="nav-item">
