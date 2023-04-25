@@ -79,6 +79,9 @@ function showCartTable(){
     {
 
         price += parseInt(cart[i].prixTotal)
+
+        var myId = String('qte_'+cart[i].id)
+
         cartTable.innerHTML += `
         
         <tr>
@@ -93,9 +96,9 @@ function showCartTable(){
         <td> ${cart[i].prix} FCFA</td>
         <td>
             <div class="cart-plus-minus">
-                <div class="dec qtybutton" id="plus">-</div>
-                <input class="cart-plus-minus-box" type="text" id="qte_${cart[i].id}" onchange="UpdateCart(qte_${cart[i].id},${cart[i].nom},${cart[i].img}, ${cart[i].id})" name="qtybutton" value="${cart[i].quantite}">
-                <div class="inc qtybutton" id="plus">+</div>
+              
+                <input class="cart-plus-minus-box" type="number" id="qte_${cart[i].id}" onchange="UpdateCart('${myId}', ${cart[i].id}, ${cart[i].prix})" value="${cart[i].quantite}">
+           
             </div>
             
         </td>
@@ -111,10 +114,28 @@ function showCartTable(){
     document.getElementById('tprice').innerHTML=price
 }
 
-    function UpdateCart(elm,nom, prix, img, id ){
+    function UpdateCart(elm, id, prix){
        
       var qte = document.getElementById(elm); 
-        addToCart(nom, prix, qte.value, img, id );
+      var quantite = qte.value
+      var cart = JSON.parse(storage.getItem('cart'));
+      var prixTotal = prix * quantite;
+    
+  
+      for (var i = 0; i < cart.length; i++) {
+          if (cart[i].id == id) {
+              cart[i].quantite = quantite;
+              cart[i].prixTotal = prixTotal;
+              
+              console.log(cart[i].id)
+              console.log(quantite)
+              console.log(prixTotal)
+          
+          }
+      }
+      storage.setItem('cart', JSON.stringify(cart));
+      alert('succes')
+  
     }
 
 
