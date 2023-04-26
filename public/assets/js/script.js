@@ -1,52 +1,48 @@
 var storage = window.localStorage;
 
-if (storage.getItem('cart')) {
-
+if (storage.getItem("cart")) {
 } else {
-    storage.setItem('cart', JSON.stringify([]));
+  storage.setItem("cart", JSON.stringify([]));
 }
 
-function addToCart(nom, prix, quantite, img, id) 
-{
-    var cart = JSON.parse(storage.getItem('cart'));
-    var prixTotal = prix * quantite;
-    var produitExiste = false;
+function addToCart(nom, prix, quantite, img, id) {
+  var cart = JSON.parse(storage.getItem("cart"));
+  var prixTotal = prix * quantite;
+  var produitExiste = false;
 
-    for (var i = 0; i < cart.length; i++) {
-        if (cart[i].nom === nom) {
-            cart[i].quantite += quantite;
-            cart[i].prixTotal += prixTotal;
-            produitExiste = true;
-        }
+  for (var i = 0; i < cart.length; i++) {
+    if (cart[i].nom === nom) {
+      cart[i].quantite += quantite;
+      cart[i].prixTotal += prixTotal;
+      produitExiste = true;
     }
+  }
 
-    if (!produitExiste) {
-        var cart_item = {
-            'id':id,
-            'img':img,
-            'nom': nom,
-            'prix': prix,
-            'quantite': quantite,
-            'prixTotal': prixTotal
-        };
-        cart.push(cart_item);
-    }
+  if (!produitExiste) {
+    var cart_item = {
+      id: id,
+      img: img,
+      nom: nom,
+      prix: prix,
+      quantite: quantite,
+      prixTotal: prixTotal,
+    };
+    cart.push(cart_item);
+  }
 
-    storage.setItem('cart', JSON.stringify(cart));
+  storage.setItem("cart", JSON.stringify(cart));
 
-    alert('Le produit ' + nomProduit + ' a été ajouté au panier avec succès');
+  alert("Le produit " + nomProduit + " a été ajouté au panier avec succès");
 }
 
-function showCartPreview(){
-
-    var cart = JSON.parse(storage.getItem('cart'))
-    var cartPreview = document.getElementById('previewCart')
-    cartPreview.innerHTML = ''
-    var price = 0
-    for(var i=0; i<cart.length; i++){
-
-        price += parseInt(cart[i].prixTotal)
-        cartPreview.innerHTML += `
+function showCartPreview() {
+  var cart = JSON.parse(storage.getItem("cart"));
+  var cartPreview = document.getElementById("previewCart");
+  cartPreview.innerHTML = "";
+  var price = 0;
+  for (var i = 0; i < cart.length; i++) {
+    price += parseInt(cart[i].prixTotal);
+    cartPreview.innerHTML += `
         
         <div class="cart-item">
         <div class="cart-img">
@@ -59,30 +55,24 @@ function showCartPreview(){
        
     </div>
 
-        `
-    }
+        `;
+  }
 
-    document.getElementById('price').innerHTML=price
-
+  document.getElementById("price").innerHTML = price;
 }
 
-function showCartTable(){
+function showCartTable() {
+  var cart = JSON.parse(storage.getItem("cart"));
+  var cartTable = document.getElementById("cartTable");
+  cartTable.innerHTML = "";
+  var price = 0;
 
-    var cart = JSON.parse(storage.getItem('cart'))
-    var cartTable = document.getElementById('cartTable')
-    cartTable.innerHTML = ''
-    var price = 0;
+  for (var i = 0; i < cart.length; i++) {
+    price += parseInt(cart[i].prixTotal);
 
+    var myId = String("qte_" + cart[i].id);
 
-    
-    for(var i=0; i<cart.length; i++)
-    {
-
-        price += parseInt(cart[i].prixTotal)
-
-        var myId = String('qte_'+cart[i].id)
-
-        cartTable.innerHTML += `
+    cartTable.innerHTML += `
         
         <tr>
         <td class="product-item">
@@ -109,36 +99,71 @@ function showCartTable(){
     </tr>
        
         `;
-    }
+  }
 
-    document.getElementById('tprice').innerHTML=price
+  document.getElementById("tprice").innerHTML = price;
 }
 
-    function UpdateCart(elm, id, prix){
-       
-      var qte = document.getElementById(elm); 
-      var quantite = qte.value
-      var cart = JSON.parse(storage.getItem('cart'));
-      var prixTotal = prix * quantite;
-    
-  
-      for (var i = 0; i < cart.length; i++) {
-          if (cart[i].id == id) {
-              cart[i].quantite = quantite;
-              cart[i].prixTotal = prixTotal;
-              
-              console.log(cart[i].id)
-              console.log(quantite)
-              console.log(prixTotal)
-          
-          }
-      }
-      storage.setItem('cart', JSON.stringify(cart));
-      alert('succes')
-  
+function UpdateCart(elm, id, prix) {
+  var qte = document.getElementById(elm);
+  var quantite = qte.value;
+  var cart = JSON.parse(storage.getItem("cart"));
+  var prixTotal = prix * quantite;
+
+  for (var i = 0; i < cart.length; i++) {
+    if (cart[i].id == id) {
+      cart[i].quantite = quantite;
+      cart[i].prixTotal = prixTotal;
+
+      console.log(cart[i].id);
+      console.log(quantite);
+      console.log(prixTotal);
     }
+  }
+  storage.setItem("cart", JSON.stringify(cart));
+  alert("succes");
+}
 
+function send_order(amount, paid, adress) {
+        var formdata = new FormData();
+        formdata.append("amount", amount);
+        formdata.append("paid", paid);
+        formdata.append("adress", adress);
 
+        var requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: formdata,
+            redirect: "follow",
+        };
+
+        fetch("http://127.0.0.1:8000/views/api.php?action=send_order", requestOptions)
+            .then((response) => response.text())
+            .then((result) => console.log(result))
+            .catch((error) => console.log("error", error));
+}
+
+function order_content(product, order, quantity) {
+        var formdata = new FormData();
+        formdata.append("product", product);
+        formdata.append("order", order);
+        formdata.append("quantity", quantity);
+
+        var requestOptions = {
+            method: "POST",
+            headers: myHeaders,
+            body: formdata,
+            redirect: "follow",
+        };
+
+        fetch(
+            "http://127.0.0.1:8000/views/api.php?action=order_content",
+            requestOptions
+        )
+            .then((response) => response.text())
+            .then((result) => console.log(result))
+            .catch((error) => console.log("error", error));
+}
 
 /*
 *Le code que vous avez fourni est une fonction JavaScript appelée addToCart(). 
