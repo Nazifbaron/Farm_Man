@@ -283,11 +283,11 @@
 						<table>
 							<thead>
 								<tr>
-									<th>Product</th>
-									<th>Price</th>
-									<th>Quantity</th>
-									<th>Total</th>
-									<th>Edit</th>
+									<th>Produit</th>
+									<th>Prix</th>
+									<th>Quantité</th>
+									<th>Prix Total</th>
+									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody id="cartTable">
@@ -390,59 +390,34 @@
 					</div>
 					<div class="cart-bottom">
 						<div class="cart-checkout-box">
-							<form action="https://labartisan.net/" class="coupon">
-								<input type="text" name="coupon" placeholder="Coupon Code..." class="cart-page-input-text">
-								<input type="submit" value="Apply Coupon">
-							</form>
+							<textarea name="livraison" id="livraison" cols="30" rows="10" placeholder="@Entrer le lieu de livraison"></textarea>							
 							<form action="https://labartisan.net/" class="cart-checkout">
-								<input type="submit" value="Update Cart">
-								<input type="submit" value="Proceed to Checkout">
+								<!--<input type="submit" value="Proceed to Checkout">-->
+								<button onclick="send_order()">Envoyer la commande</button>
+
 							</form>
 						</div>
 						<div class="shiping-box">
 							<div class="row">
 								<div class="col-md-6 col-12">
 									<div class="calculate-shiping w-100">
-										<h4>Calculate Shipping</h4>
-										<div class="outline-select">
-											<select>
-												<option value="volvo">United Kingdom (UK)</option>
-												<option value="saab">Bangladesh</option>
-												<option value="saab">Pakisthan</option>
-												<option value="saab">India</option>
-												<option value="saab">Nepal</option>
-											</select>
-											<span class="select-icon"><i class="icofont-caret-down"></i></span>
-										</div>
-										<div class="outline-select shipping-select">
-											<select>
-												<option value="volvo">State/Country</option>
-												<option value="saab">Dhaka</option>
-												<option value="saab">Benkok</option>
-												<option value="saab">Kolkata</option>
-												<option value="saab">Kapasia</option>
-											</select>
-											<span class="select-icon"><i class="icofont-caret-down"></i></span>
-										</div>
-										<input type="text" name="coupon" placeholder="Postcode/ZIP"
-											class="cart-page-input-text" />
-										<button type="submit" class="lab-btn"><span>Update Total</span></button>
+										<button type="submit" class="lab-btn"><span>Mise à jour Total</span></button>
 									</div>
 								</div>
 								<div class="col-md-6 col-12">
 									<div class="cart-overview">
-										<h4>Cart Totals</h4>
+										<h4>Totaux du panier</h4>
 										<ul>
 											<li>
-												<span class="pull-left">Cart Subtotal</span>
+												<span class="pull-left">Sous-total du panier</span>
 												<p class="pull-right" id="tprice"></p>
 											</li>
 											<li>
-												<span class="pull-left">Shipping and Handling</span>
-												<p class="pull-right">Free Shipping</p>
+												<span class="pull-left">Expédition et manutention</span>
+												<p class="pull-right">Livraison gratuite</p>
 											</li>
 											<li>
-												<span class="pull-left">Order Total</span>
+												<span class="pull-left">Commande Total</span>
 												<p class="pull-right">$ 2940.00</p>
 											</li>
 										</ul>
