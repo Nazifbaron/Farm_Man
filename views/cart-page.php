@@ -389,20 +389,11 @@
 						</table>
 					</div>
 					<div class="cart-bottom">
-						<div class="cart-checkout-box">
-							<textarea name="livraison" id="livraison" cols="30" rows="10" placeholder="@Entrer le lieu de livraison"></textarea>							
-							<form action="https://labartisan.net/" class="cart-checkout">
-								<!--<input type="submit" value="Proceed to Checkout">-->
-								<button onclick="send_order()">Envoyer la commande</button>
-
-							</form>
-						</div>
+					
 						<div class="shiping-box">
 							<div class="row">
 								<div class="col-md-6 col-12">
-									<div class="calculate-shiping w-100">
-										<button type="submit" class="lab-btn"><span>Mise à jour Total</span></button>
-									</div>
+									
 								</div>
 								<div class="col-md-6 col-12">
 									<div class="cart-overview">
@@ -416,15 +407,25 @@
 												<span class="pull-left">Expédition et manutention</span>
 												<p class="pull-right">Livraison gratuite</p>
 											</li>
-											<li>
+											<!--<li>
 												<span class="pull-left">Commande Total</span>
 												<p class="pull-right">$ 2940.00</p>
-											</li>
+											</li> -->
 										</ul>
 									</div>
 								</div>
 							</div>
 						</div>
+
+						<div class="cart-checkout-box">
+							<input type="text" id="livraison" placeholder="Entrer le lieu de livraison" class="text">
+													
+							
+								<button class="lab-btn" onclick="send_order()">Envoyer la commande</button>
+
+						
+						</div>
+
 					</div>
 				</div>
 			</div>

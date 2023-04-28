@@ -169,11 +169,13 @@ CartPlusMinus=addEventListener("input", function()
 
 
 
-function send_order(amount, paid, adress) {
+function send_order() {
+    var price = document.getElementById('tprice').innerText
+    var _location = document.getElementById('livraison').value
         var formdata = new FormData();
-        formdata.append("amount", amount);
-        formdata.append("paid", paid);
-        formdata.append("adress", adress);
+        formdata.append("amount", parseInt(price));
+        formdata.append("paid", 0);
+        formdata.append("adress", _location);
 
         var requestOptions = {
             method: "POST",
@@ -198,6 +200,7 @@ function send_order(amount, paid, adress) {
 
             })
             .catch((error) => console.log("error", error));
+            alert('Commande enregistrée avec succes')
 }
 
 function order_content(product, order, quantity) {
@@ -219,19 +222,7 @@ function order_content(product, order, quantity) {
         )
             .then((response) => response.text())
             .then((result) => console.log(result))
-            .then(() => {
-              fetch("http://127.0.0.1:8000/views/api.php?action=gcart")
-                  .then((response) => response.json())
-                  .then((cart) => {
-                      for (let i = 0; i < cart.length; i++) {
-                          order_content(cart[i].nom, cart[i].prix, cart[i].quantite, cart[i].prixTotal);
-                      }
-                  })
-                  .then(() => {
-                      window.location.href = "confirmation.php";
-                  })
-                  .catch((error) => console.log("Error:", error));
-          })
+            
             .catch((error) => console.log("error", error));
 }
 
