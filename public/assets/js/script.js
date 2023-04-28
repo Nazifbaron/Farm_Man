@@ -132,14 +132,26 @@ function send_order(amount, paid, adress) {
 
         var requestOptions = {
             method: "POST",
-            headers: myHeaders,
+           
             body: formdata,
             redirect: "follow",
         };
 
         fetch("http://127.0.0.1:8000/views/api.php?action=send_order", requestOptions)
-            .then((response) => response.text())
-            .then((result) => console.log(result))
+            .then((response) => response.json())
+            .then((result) => {
+
+              var order = result.idCmd // recupére le id de la commande du resultat de la requete
+              var cart = JSON.parse(storage.getItem("cart")); // recuperer le panier
+
+              for(var i=0; i<cart.length; i++){
+                order_content(cart[i].id, order, cart[i].quantite)
+
+                console.log('ajout du produit '+cart[i].nom)
+              }
+
+
+            })
             .catch((error) => console.log("error", error));
 }
 
@@ -151,7 +163,7 @@ function order_content(product, order, quantity) {
 
         var requestOptions = {
             method: "POST",
-            headers: myHeaders,
+           
             body: formdata,
             redirect: "follow",
         };
