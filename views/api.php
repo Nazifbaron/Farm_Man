@@ -58,7 +58,7 @@
             require_once('../model/connexion.php');
             
             try{
-                $req = $bdd->prepare('INSERT INTO detailCommande(Produit_idPr, Commande_idCmd, quantite) VALUES(?,?,?)');
+                $req = $bdd->prepare('INSERT INTO detailCommande(Produit_id, Commande_idCmd, quantite) VALUES(?,?,?)');
                 $req->execute(array($product, $order, $quantity));
                 
                 $req = $bdd ->query('SELECT * FROM detailCommande WHERE id=(SELECT max(id) FROM detailCommande)');

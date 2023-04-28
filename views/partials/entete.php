@@ -26,7 +26,7 @@
 
 	</head>
 
-	<body onload="showCartPreview()">
+	<body onclick="showCartPreview()">
 
 		<!-- preloader start here -->
 		<div class="preloader">

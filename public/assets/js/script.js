@@ -28,14 +28,16 @@ function addToCart(nom, prix, quantite, img, id) {
       prixTotal: prixTotal,
     };
     cart.push(cart_item);
+    alert("Le produit " +cart[i].nom + " a été ajouté au panier avec succès");
+
   }
 
   storage.setItem("cart", JSON.stringify(cart));
 
-  alert("Le produit " + nomProduit + " a été ajouté au panier avec succès");
 }
 
 function showCartPreview() {
+
   var cart = JSON.parse(storage.getItem("cart"));
   var cartPreview = document.getElementById("previewCart");
   cartPreview.innerHTML = "";
@@ -94,7 +96,7 @@ function showCartTable() {
         </td>
         <td>${cart[i].prixTotal} FCFA</td>
         <td>
-            <a href="#"><img src="../public/assets/images/del.png" alt="product"></a>
+          <img src="../public/assets/images/del.png" alt="product" onclick="delete_cart(${cart[i].id})">
         </td>
     </tr>
        
@@ -104,25 +106,68 @@ function showCartTable() {
   document.getElementById("tprice").innerHTML = price;
 }
 
-function UpdateCart(elm, id, prix) {
-  var qte = document.getElementById(elm);
-  var quantite = qte.value;
-  var cart = JSON.parse(storage.getItem("cart"));
-  var prixTotal = prix * quantite;
 
-  for (var i = 0; i < cart.length; i++) {
-    if (cart[i].id == id) {
-      cart[i].quantite = quantite;
-      cart[i].prixTotal = prixTotal;
+//ici on attend 2seconde pour actualiser le input de la class (.cart-plus-minus-box)
+var CartPlusMinus = $('.cart-plus-minus-box');
+CartPlusMinus=addEventListener("input", function() 
+{
+ 
+  this.setTimeout(function()
+  {
+    location.reload();
+    
+  },2000);
 
-      console.log(cart[i].id);
-      console.log(quantite);
-      console.log(prixTotal);
+});
+
+  function UpdateCart(elm, id, prix) {
+    var qte = document.getElementById(elm);
+    var quantite = qte.value;
+    var cart = JSON.parse(storage.getItem("cart"));
+    var prixTotal = prix * quantite;
+
+    for (var i = 0; i < cart.length; i++) {
+      if (cart[i].id == id) {
+        cart[i].quantite = quantite;
+        cart[i].prixTotal = prixTotal;
+
+        console.log(cart[i].id);
+        console.log(quantite);
+        console.log(prixTotal);
+      }
     }
+
+    storage.setItem("cart", JSON.stringify(cart));
+    alert("succes");
+
+    
   }
-  storage.setItem("cart", JSON.stringify(cart));
-  alert("succes");
-}
+
+  //******************* */
+
+// var delete_cart=document.getElementById('delete_cart');
+  function delete_cart(id)
+  {
+
+    var cart=JSON.parse(storage.getItem("cart"));
+    for(var i = 0;i<cart.length;i++)
+    {
+      if(cart[i].id==id)
+      {
+        cart.splice(i,1);
+        storage.setItem("cart",JSON.stringify(cart));
+        alert("Le produit a ete retiré du panier avec succes.")
+        location.reload();
+
+        return;
+      }
+    }
+
+    alert("Le produit n'a pas été trouver dans le panier.")
+    location.reload();
+  }
+
+
 
 function send_order(amount, paid, adress) {
         var formdata = new FormData();
@@ -174,6 +219,19 @@ function order_content(product, order, quantity) {
         )
             .then((response) => response.text())
             .then((result) => console.log(result))
+            .then(() => {
+              fetch("http://127.0.0.1:8000/views/api.php?action=gcart")
+                  .then((response) => response.json())
+                  .then((cart) => {
+                      for (let i = 0; i < cart.length; i++) {
+                          order_content(cart[i].nom, cart[i].prix, cart[i].quantite, cart[i].prixTotal);
+                      }
+                  })
+                  .then(() => {
+                      window.location.href = "confirmation.php";
+                  })
+                  .catch((error) => console.log("Error:", error));
+          })
             .catch((error) => console.log("error", error));
 }
 
