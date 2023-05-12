@@ -1,5 +1,5 @@
 <?php
-	require_once "app/core/views/partials/entete.php";
+	require_once "partials/entete.php";
 ?>
 		<!-- desktop menu ending here -->
 
@@ -8,9 +8,9 @@
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="page-header-content-area">
-					<h4 class="ph-title">Poultry Farm Contact us</h4>
+					<h4 class="ph-title">Ferme avicole Contactez-nous</h4>
 					<ul class="lab-ul">
-						<li><a href="index.html">Home</a></li>
+						<li><a href="home.php">Accueil</a></li>
 						<li><a class="active">Contact us</a></li>
 					</ul>
 				</div>
@@ -39,7 +39,7 @@
 									<i class="icofont-phone"></i>
 								</div>
 								<div class="contact-details">
-									<p>+88978-658-125, 0078-98-954 012-859-6510003</p>
+									<p>+22962130072, +22996218474</p>
 								</div>
 							</div>
 						</div>
@@ -49,7 +49,7 @@
 									<i class="icofont-envelope"></i>
 								</div>
 								<div class="contact-details">
-									<p>poultryfarm@gmail.com www.poultryfarm.com</p>
+									<p>poultryfarm229@gmail.com </p>
 								</div>
 							</div>
 						</div>
@@ -74,7 +74,7 @@
 									<input type="text" name="subject" class="" placeholder="Subject*">
 									<textarea name="text" id="role" cols="30" rows="9" placeholder="Message*"></textarea>
 									<button type="submit" class="lab-btn">
-										<span>Submit Now</span>
+										<span>Soumettre</span>
 									</button>
 								</form>
 							</div>
@@ -87,5 +87,5 @@
 
 		<!-- footer section start here -->
 <?php
-	require_once "app/core/views/partials/footer.php";
+	require_once "partials/footer.php";
 ?>

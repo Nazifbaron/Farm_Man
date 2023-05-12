@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       if ($password != $conf_password) {
         $_SESSION['error']= "Les mots de passe ne correspondent pas.";
+        header('location:../views/partials/inscription.php');
       } else {
         
         $sql = 'SELECT * FROM client WHERE email=? AND mdp=?';
@@ -35,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           $result->execute(array($nom, $prenom ,$telephone, $email, $ville,$password));
     
           $_SESSION['success']= "Inscription réussie.";
+          header('location:../views/home.php');
         }
   
         // Fermer la connexion à la base de données
@@ -44,9 +46,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
 
     $_SESSION['error']= "Veuillez remplir tous les champs.";
+    header('location:../views/partials/inscription.php');
       }
 }
-header('location:../views/home.php');
+
 
 
 ?>

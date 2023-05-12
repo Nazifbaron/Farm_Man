@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
       $_SESSION["id"] = $user['idCli'];
       $_SESSION["mdp"] = $user['mdp'];
 
-      header("location: ../views/product-page.php");
+      header("location: ../views/cart-page.php");
     } 
     else 
     {

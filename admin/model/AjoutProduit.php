@@ -10,20 +10,21 @@ function dd($elm=null){
    if(isset($_POST['envoie'])){
   
     
-        if(empty($_POST['nom']) || empty($_POST['categorie']) || empty($_POST['quantite']) || empty($_POST['prix']) ){
+        if(empty($_POST['nom']) || empty($_POST['categorie']) || empty($_POST['quantite']) || empty($_POST['prix']) || empty($_POST['statut'])){
             echo "Veuillez remplir tout les champs";
         }else{
             $nom=htmlspecialchars($_POST['nom']);
             $categorie=htmlspecialchars($_POST['categorie']);
             $quantite=htmlspecialchars($_POST['quantite']);
             $prix=htmlspecialchars($_POST['prix']);
+            $statut=htmlspecialchars($_POST['statut']);
             $img=file_upload('medias/', 'img');
 
           
 
-            $sql='INSERT INTO produit(nom ,quantite,prix, Categorie_idCat,images) VALUES(?, ?, ?, ?, ?)';
+            $sql='INSERT INTO produit(nom ,quantite,prix,statut, Categorie_idCat,images) VALUES(?, ?, ?, ?, ?, ?)';
             $req = $bdd->prepare($sql);
-            $req->execute(array($nom, $quantite, $prix,$categorie, $img));
+            $req->execute(array($nom, $quantite, $prix,$statut,$categorie, $img));
             
           
             if ($req->rowCount() > 0) {

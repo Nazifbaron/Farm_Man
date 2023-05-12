@@ -14,6 +14,30 @@
   
     
  }
+ function getCommande(){
+     
+  $sql = 'SELECT C.idCmd, montant, dateCmd, payer, adrLiv, nomCli, prenomCli 
+  FROM commande AS C, client AS c WHERE C.Client_idCli=c.idCli';
+
+  $req = $GLOBALS['bdd']->prepare($sql);
+
+  $req->execute();
+
+  return $req->fetchAll();
+
+ }
+ function getdetCommande(){
+     
+  $sql = 'SELECT C.idCmd, montant, dateCmd, payer, adrLiv, nomCli, prenomCli 
+  FROM commande AS C, client AS c WHERE C.Client_idCli=c.idCli';
+
+  $req = $GLOBALS['bdd']->prepare($sql);
+
+  $req->execute();
+
+  return $req->fetchAll();
+
+ }
 
  function getCategorieById($id){
 
@@ -45,23 +69,36 @@
    
     return $req->fetch();
    }
-  
 
    function getProduit(){
   
-    $sql = 'SELECT p.id,nom,quantite,prix,libelleCat, images FROM produit as p INNER JOIN categorie as c ON p.Categorie_idCat = c.id '; 
+    $sql = 'SELECT p.id,nom,quantite,prix,statut,libelleCat, images FROM produit as p INNER JOIN categorie as c ON p.Categorie_idCat = c.id '; 
 
     $req = $GLOBALS['bdd']->prepare($sql);
 
     $req->execute();
 
     return $req->fetchAll();
- 
+   }
+
+
+    function getProduitFini()
+    {
+  
+      $sql = "SELECT p.id,nom,quantite,prix,libelleCat, images FROM produit as p INNER JOIN categorie as c ON p.Categorie_idCat = c.id WHERE statut='fini' "; 
+  
+      $req = $GLOBALS['bdd']->prepare($sql);
+  
+      $req->execute();
+  
+      return $req->fetchAll();
    
-}
+    }
+
+    
 function getProduits(){
   
-  $sql = 'SELECT p.id,nom,quantite,prix,libelleCat, images FROM produit as p INNER JOIN categorie as c ON p.Categorie_idCat = c.id LIMIT 8 '; 
+  $sql = "SELECT p.id,nom,quantite,prix,libelleCat, images FROM produit as p INNER JOIN categorie as c ON p.Categorie_idCat = c.id WHERE statut='fini' LIMIT 8 "; 
 
   $req = $GLOBALS['bdd']->prepare($sql);
 
@@ -223,5 +260,15 @@ function file_upload($dir, $file)
    
 }
 
-   
+function search($word)
+{ // fonction du moteur de recherche
+    // cette fontion prend en paramètre le mot clé de la recherche
+    // la recherche se fait en fonction du titre et de la description
+    $query = preg_replace("#[^a-zA-Z ?0-9]#i", "", $word); // nettoyage du mot clé
+    $sql = "SELECT * FROM produit WHERE nom LIKE ? OR quantite LIKE ? OR prix LIKE ? OR prix LIKE ? OR statut LIKE ? OR Categorie_idCat LIKE ? OR images LIKE ?"; // requete de reherche
+    require('connect_db.php'); // récupération de l'objet de connection à la base de données 
+    $req = $db -> prepare($sql); 
+    $req -> execute(array('%'.$query.'%', '%'.$query.'%', '%'.$query.'%')); // execution de la requete de recherche
+    return $req;
+}
 ?>

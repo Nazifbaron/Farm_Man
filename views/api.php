@@ -1,6 +1,9 @@
 <?php
+session_start();
     $action = $_GET['action'];
     $action();
+
+
 
     
 
@@ -17,14 +20,20 @@
 
            
             try{
-
-                $req = $bdd -> prepare('INSERT INTO commande(montant, payer, adrLiv,  Client_idCli ) VALUES (?,?,?,?)');
-                session_start();
-                $req->execute(array($amount, $paid, $adress, $_SESSION['id']?$_SESSION['id']:1));
+               
+                $req = $bdd -> prepare('INSERT INTO commande(montant, payer, adrLiv, Client_idCli) VALUES (?,?,?,?)');
+                $req->execute(array($amount, $paid, $adress, $_SESSION['id']));
 
                 $req = $bdd ->query('SELECT * FROM commande WHERE idCmd=(SELECT max(idCmd) FROM commande)');
                 $data = $req->fetch();
+                $orderId = $data['idCmd'];
 
+                
+                $email = null;
+                $email = $_SESSION['email'];
+                
+                sendConfirmationEmail($orderId,$email);
+                
                 header('Content-Type: application/json');
                 header('Access-Control-Allow-Origin: *');
                 http_response_code(201);
@@ -84,5 +93,45 @@
             }
         }
     }
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\Exception;
+    use PHPMailer\PHPMailer\SMTP;
+
+    
+// Fonction pour envoyer l'e-mail de confirmation
+function sendConfirmationEmail($orderId,$email) {
+
+require '../phpmailer/Exception.php';
+require '../phpmailer/PHPMailer.php';
+require '../phpmailer/SMTP.php';
+    // Le code pour configurer PHPMailer et envoyer l'e-mail de confirmation
+    $phpmailer = new PHPMailer(true);
+
+    try {
+        // Configuration des paramètres SMTP
+        $phpmailer->isSMTP(); 
+		$phpmailer->Host = 'smtp.gmail.com';
+		$phpmailer->SMTPAuth = true; 
+		$phpmailer->Username = "poultryfarm229@gmail.com";
+		$phpmailer->Password ="onfdgicsjdahyoug";
+		$phpmailer->SMTPSecure = 'ssl'; // ssl is depracated
+		$phpmailer->Port = 465; // TLS only
+
+        // Configuration du contenu de l'e-mail de confirmation
+        $phpmailer->setFrom("poultryfarm229@gmail.com");
+		$phpmailer->addAddress($email);
+		$phpmailer->isHTML(true);
+		$phpmailer->Subject ="Agro Farm";
+        $phpmailer->Body="Votre commande (ID: $orderId) a été confirmée.";
+
+        // Envoi de l'e-mail
+        $phpmailer->Send();
+
+        echo "L'e-mail de confirmation a été envoyé avec succès.";
+    } catch (Exception $e) {
+        echo "Erreur lors de l'envoi de l'e-mail de confirmation : " . $phpmailer->ErrorInfo;
+    }
+    		
+}
 
 ?>

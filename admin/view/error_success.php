@@ -15,3 +15,11 @@
         ?>
     </div>
 <?php endif ?>
+<?php if(isset($_SESSION['warning'])): ?>
+    <div class="alert-warning">
+        <?php 
+            echo $_SESSION['warning'];
+            unset($_SESSION['warning']);
+        ?>
+    </div>
+<?php endif ?>

@@ -1,10 +1,22 @@
+<?php
+		session_start();
+		 
+		if(!empty($_SESSION['email'])){
+			
+	}else{
+			echo '<script>alert("Veuillez vous connecté")</script>';
+			header('location: partials/connexions.php');
+		}
+	
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 	
 <!-- Mirrored from labartisan.net/demo/PoultryFarm/poultry-farm/cart-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Mar 2023 16:31:28 GMT -->
 <head>
-        <title>Poultry Farm</title>
+        <title>Ferme avicole</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -19,10 +31,11 @@
 		<link rel="stylesheet" href="../public/../public/assets/css/lightcase.css">
 		<link rel="stylesheet" href="../public/../public/assets/css/swiper.min.css">
 		<link rel="stylesheet" href="../public/../public/assets/css/style.css">
+		<script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
 	</head>
 
 	<body onload="showCartTable()">
-
+	
 		<!-- preloader start here -->
 		<div class="preloader">
 			<div class="preloader-inner">
@@ -34,7 +47,7 @@
 		</div>
 		<!-- preloader ending here -->
 
-		
+
 		<!--search area-->
 		<div class="search-input">
 			<div class="search-close">
@@ -49,11 +62,12 @@
 		</div>
 		<!-- search area -->
 
-		<!-- Mobile Menu Start Here -->
+
+
 		<div class="mobile-menu transparent-header">
 			<nav class="mobile-header">
 				<div class="header-logo">
-					<a href="index.php"><img src="../public/assets/images/logo/01.png" alt="logo"></a>
+					<a href="/"><img src="../public/assets/images/logo/01.png" alt="logo"></a>
 				</div>
 				<div class="header-bar">
 					<span></span>
@@ -65,45 +79,38 @@
 				<div class="mobile-menu-area">
 					<div class="mobile-menu-area-inner">
 						<ul class="lab-ul">
+
+
+
 							<li>
-								<a href="#0">Home</a>
+								<a href="#0">Boutique</a>
 								<ul class="lab-ul">
-									<li><a href="index.php">Home Page One</a></li>
-									<li><a href="index-2.php">Home Page Two</a></li>
+									<li><a href="product-page.php">Produits</a></li>
+									<li><a href="product-single.php">Détails Produit</a></li>
+									<li><a href="cart-page.php">Panier</a></li>
 								</ul>
 							</li>
-							<li><a href="about.php">About</a></li>
+							<li><a href="../app/core/views/contact.php">Contact</a></li>
 							<li>
-								<a href="#0">Pages</a>
+								<a href="#0">Se Connecter</a>
 								<ul class="lab-ul">
-									<li><a href="team.php">Team Membar</a></li>
-									<li><a href="faq-page.php">Faq Page</a></li>
-									<li><a href="404.php">404 Page</a></li>
+									<li><a href="product-page.php">Inscription</a></li>
+									<li><a href="product-single.php">Connect</a></li>
 								</ul>
 							</li>
-							<li>
-								<a href="#0">Blog</a>
-								<ul class="lab-ul">
-									<li><a href="blog.php">Blog Right Sidebar</a></li>
-									<li><a href="blog-ls.php">Blog left Sidebar</a></li>
-									<li><a href="blog-single.php">Blog Details</a></li>
-								</ul>
-							</li>
-							<li class="active">
-								<a href="#0">Shop</a>
-								<ul class="lab-ul">
-									<li><a href="product-page.php">Products Page</a></li>
-									<li><a href="product-single.php">Products Details</a></li>
-									<li class="active"><a href="cart-page.php">Cart Page</a></li>
-								</ul>
-							</li>
-							<li><a href="contact.php">Contact</a></li>
 						</ul>
 					</div>
 				</div>
 			</nav>
 		</div>
 		<!-- Mobile Menu Ending Here -->
+
+		<!-- Modals include debut -->
+		<?php include('modal_inscription.php'); ?>
+		<?php include('modal_connexion.php'); ?>
+		<!-- Modals include fin-->
+
+		
 
 		<!-- desktop menu start here -->
 		<header class="header-section">
@@ -112,7 +119,7 @@
 					<div class="row justify-content-center align-items-center">
 						<div class="col-lg-5 col-12">
 							<div class="logo py-2">
-								<a href="index.php"><img src="../public/assets/images/logo/01.png" alt="logo"></a>
+								<a href="/"><img src="../public/assets/images/logo/01.png" alt="logo"></a>
 							</div>
 						</div>
 						<div class="col-lg-7 col-12">
@@ -123,8 +130,8 @@
 											<img src="../public/assets/images/header/01.png" alt="address">
 										</div>
 										<div class="ht-add-content">
-											<span>72AH, Victoria,</span>
-											<span class="d-block text-bold">Collins Street West USA</span>
+											<span>AGOUE</span>
+											<span class="d-block text-bold">Frontière TOGO BENIN</span>
 										</div>
 									</li>
 									<li class="d-flex flex-wrap align-items-center">
@@ -132,8 +139,8 @@
 											<img src="../public/assets/images/header/02.png" alt="email">
 										</div>
 										<div class="ht-add-content">
-											<span>Send Mail </span>
-											<span class="d-block text-bold">murgifarm@gmail.com</span>
+											<span>Envoyer Mail </span>
+											<span class="d-block text-bold">nazifi@gmail.com</span>
 										</div>
 									</li>
 									<li class="d-flex flex-wrap align-items-center">
@@ -141,17 +148,18 @@
 											<img src="../public/assets/images/header/03.png" alt="call">
 										</div>
 										<div class="ht-add-content">
-											<span>Make Call </span>
-											<span class="d-block text-bold">+88-6487-5962-563</span>
+											<span>Tel : </span>
+											<span class="d-block text-bold">+229 62130072</span>
 										</div>
 									</li>
-
 								</ul>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+			<!--<?php include('../admin/view/error_success.php'); ?>-->
+
 			<div class="header-bottom bg-theme">
 				<div class="header-area">
 					<div class="container">
@@ -162,84 +170,54 @@
 										<a href="index.php"><img src="../public/assets/images/logo/02.png" alt="logo"></a>
 									</div>
 									<ul class="lab-ul">
-										<li class="active">
-											<a href="index.php">Home</a>
+
+
+
+										<li>
+											<a href="#0">Boutique</a>
 											<ul class="lab-ul">
-												<li><a href="index.php">Home Page One</a></li>
-												<li><a href="index-2.php">Home Page Two</a></li>
+												<li><a href="product-page.php">Produits</a></li>
+												<li><a href="product-single.php">Détails Produit</a></li>
+												<li><a href="cart-page.php">Panier</a></li>
 											</ul>
 										</li>
-										<li><a href="about.php">About</a></li>
+										<li><a href="../contact.php">Contact</a></li>
 										<li>
-											<a href="#0">Pages</a>
+											<a href="#0">Se Connecter</a>
 											<ul class="lab-ul">
-												<li><a href="team.php">Team Membar</a></li>
-												<li><a href="faq-page.php">Faq Page</a></li>
-												<li><a href="404.php">404 Page</a></li>
-											</ul>
-										</li>
-										<li>
-											<a href="#0">Blog</a>
-											<ul class="lab-ul">
-												<li><a href="blog.php">Blog</a></li>
-												<li><a href="blog-single.php">Blog Details</a></li>
+												<li><a href="partials/inscription.php">Inscription</a></li>
+												<li><a href="partials/connexion.php">Connection</a></li>
+												
 											</ul>
 										</li>
 										<li>
-											<a href="#0">Shop</a>
-											<ul class="lab-ul">
-												<li><a href="product-page.php">Products Page</a></li>
-												<li><a href="product-single.php">Products Details</a></li>
-												<li><a href="cart-page.php" class="active">Cart Page</a></li>
-											</ul>
+										<?php
+											session_start();
+													if(!empty($_SESSION['email'])){
+														echo '<a href="../views/destroy.php">Déconnexion</button>';
+													}
+													
+													
+											?>
 										</li>
-										<li>
-											<a href="#0">Gallery</a>
-											<ul class="lab-ul">
-												<li><a href="gallery-1.php">Gallery 1</a></li>
-												<li><a href="gallery-2.php">Gallery 2</a></li>
-											</ul>
-										</li>
-										<li><a href="contact.php">Contact</a></li>
+
+										
 									</ul>
 									<ul class="lab-ul search-cart">
 										<li>
 											<div class="cart-option">
 												<i class="icofont-cart-alt"></i>
 												<div class="cart-content">
-													<div class="cart-item">
-														<div class="cart-img">
-															<a href="#"><img src="../public/assets/images/products/product/01.png"
-																	alt="cart"></a>
-														</div>
-														<div class="cart-des">
-															<a href="#">Product Title Here</a>
-															<p>$20.00</p>
-														</div>
-														<div class="cart-btn">
-															<a href="#"><i class="icofont-close-circled"></i></a>
-														</div>
-													</div>
-													<div class="cart-item">
-														<div class="cart-img">
-															<a href="#"><img src="../public/assets/images/products/product/02.png"
-																	alt="cart"></a>
-														</div>
-														<div class="cart-des">
-															<a href="#">Product Title Here</a>
-															<p>$20.00</p>
-														</div>
-														<div class="cart-btn">
-															<a href="#"><i class="icofont-close-circled"></i></a>
-														</div>
+													<div  id='previewCart'>
+
 													</div>
 													<div class="cart-bottom">
 														<div class="cart-subtotal">
-															<p>Total: <b class="float-right">$40.00</b></p>
+															<p>Total: <b class="float-right"><span id="price"></span></b></p>
 														</div>
 														<div class="cart-action">
-															<a href="#" class="lab-btn"><span>View Cart</span></a>
-															<a href="#" class="lab-btn"><span>Check Out</span></a>
+															<a href="#" class="lab-btn"><span>Voir le panier</span></a>
+															<a href="#" class="lab-btn"><span>Sortir</span></a>
 														</div>
 													</div>
 												</div>
@@ -265,10 +243,10 @@
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="page-header-content-area">
-					<h4 class="ph-title">Poultry Farm Shop</h4>
+					<h4 class="ph-title">Boutique de la ferme avicole</h4>
 					<ul class="lab-ul">
-						<li><a href="index.php">Home</a></li>
-						<li><a class="active">Shop Cart</a></li>
+						<li><a href="home.php">Accueil</a></li>
+						<li><a class="active">Panier d'achat</a></li>
 					</ul>
 				</div>
 			</div>
@@ -292,101 +270,15 @@
 							</thead>
 							<tbody id="cartTable">
 								
-
-
+								<!--tbody dans le script-->
 
 								
+								
 							
-								<!--<tr>
-									<td class="product-item">
-										<div class="p-thumb">
-											<a href="#"><img src="../public/assets/images/product/02.jpg" alt="product"></a>
-										</div>
-										<div class="p-content">
-											<a href="#">Product Text Here</a>
-										</div>
-									</td>
-									<td>$250</td>
-									<td>
-										<div class="cart-plus-minus">
-											<div class="dec qtybutton">-</div>
-											<input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
-											<div class="inc qtybutton">+</div>
-										</div>
-									</td>
-									<td>$500</td>
-									<td>
-										<a href="#"><img src="../public/assets/images/del.png" alt="product"></a>
-									</td>
-								</tr>
-								<tr>
-									<td class="product-item">
-										<div class="p-thumb">
-											<a href="#"><img src="../public/assets/images/product/03.jpg" alt="product"></a>
-										</div>
-										<div class="p-content">
-											<a href="#">Product Text Here</a>
-										</div>
-									</td>
-									<td>$50</td>
-									<td>
-										<div class="cart-plus-minus">
-											<div class="dec qtybutton">-</div>
-											<input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
-											<div class="inc qtybutton">+</div>
-										</div>
-									</td>
-									<td>$100</td>
-									<td>
-										<a href="#"><img src="../public/assets/images/del.png" alt="product"></a>
-									</td>
-								</tr>
-								<tr>
-									<td class="product-item">
-										<div class="p-thumb">
-											<a href="#"><img src="../public/assets/images/product/04.jpg" alt="product"></a>
-										</div>
-										<div class="p-content">
-											<a href="#">Product Text Here</a>
-										</div>
-									</td>
-									<td>$100</td>
-									<td>
-										<div class="cart-plus-minus">
-											<div class="dec qtybutton">-</div>
-											<input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
-											<div class="inc qtybutton">+</div>
-										</div>
-									</td>
-									<td>$200</td>
-									<td>
-										<a href="#"><img src="../public/assets/images/del.png" alt="product"></a>
-									</td>
-								</tr>
-								<tr>
-									<td class="product-item">
-										<div class="p-thumb">
-											<a href="#"><img src="../public/assets/images/product/05.jpg" alt="product"></a>
-										</div>
-										<div class="p-content">
-											<a href="#">Product Text Here</a>
-										</div>
-									</td>
-									<td>$200</td>
-									<td>
-										<div class="cart-plus-minus">
-											<div class="dec qtybutton">-</div>
-											<input class="cart-plus-minus-box" type="text" name="qtybutton" value="2">
-											<div class="inc qtybutton">+</div>
-										</div>
-									</td>
-									<td>$400</td>
-									<td>
-										<a href="#"><img src="../public/assets/images/del.png" alt="product"></a>
-									</td>
-								</tr>-->
 							</tbody>
+							
 						</table>
+						<button class="lab-btn" id="pay-btn" onclick="feda()">Payer</button>
 					</div>
 					<div class="cart-bottom">
 					
@@ -418,11 +310,13 @@
 						</div>
 
 						<div class="cart-checkout-box">
-							<input type="text" id="livraison" placeholder="Entrer le lieu de livraison" class="text">
+							
+								<input type="text" id="livraison" placeholder="Entrer le lieu de livraison" class="text">
 													
 							
-								<button class="lab-btn" onclick="send_order()">Envoyer la commande</button>
+								<button  class="lab-btn" onclick="send_order()" name="envoie">Envoyer la commande</button>
 
+						
 						
 						</div>
 
@@ -445,14 +339,14 @@
 								<div class="footer-logo">
 									<img src="../public/assets/images/logo/01.png" alt="footer-logo">
 								</div>
-								<p>Conveniently customizec web services aggregate frictionle internet withouevs Conveniently customizec. </p>
-								<p>Enthusiastically scale synergistic technologies for leveraged with technology quickly.</p>
+								<p>Personnalisez facilement les services web en agrégeant sans friction l'internet sans personnaliser commodément. </p>
+								<p>Développer avec enthousiasme des technologies synergiques pour tirer rapidement parti de la technologie.</p>
 							</div>
 						</div>
 						<div class="col-xl-3 col-md-6">
 							<div class="post-item">
 								<div class="post-title">
-									<h5>Keep In Touch</h5>
+									<h5>Garder le contact</h5>
 								</div>
 								<ul class="lab-ul footer-location">
 									<li>
@@ -460,8 +354,8 @@
 											<i class="icofont-phone"></i>
 										</div>
 										<div class="content-part">
-											<p>+88130-589-745-6987</p>
-											<p>+1655-456-523</p>
+											<p>+22962130072</p>
+											<p>+22996218474</p>
 										</div>
 									</li>
 									<li>
@@ -487,7 +381,7 @@
 						<div class="col-xl-3 col-md-6">
 							<div class="post-item">
 								<div class="post-title">
-									<h5>Poultry Farm Product</h5>
+									<h5>Produits de l'élevage de volailles</h5>
 								</div>
 								<div class="lab-ul footer-post">
 									<div class="media mb-3">
@@ -496,7 +390,7 @@
 										</div>
 										<div class="media-body">
 											<a href="#">
-												<h6 class="mt-0">Light Brown Eggs</h6>
+												<h6 class="mt-0">Œufs marron clair</h6>
 											</a>
 											<span class="price">$25.99</span>
 										</div>
@@ -507,7 +401,7 @@
 										</div>
 										<div class="media-body">
 											<a href="#">
-												<h6 class="mt-0">Little Chicken Broiler</h6>
+												<h6 class="mt-0">Petit poulet grillagé</h6>
 											</a>
 											<span class="price">$25.99</span>
 										</div>
@@ -518,7 +412,7 @@
 						<div class="col-xl-3 col-md-6">
 							<div class="post-item">
 								<div class="post-title">
-									<h5>Instagram Feed</h5>
+									<h5>Instagram Alimentation</h5>
 								</div>
 								<div class="lab-ul footer-gellary">
 									<figure class="figure">
@@ -548,7 +442,7 @@
 			<div class="footer-bottom">
 				<div class="container">
 					<div class="section-wrapper">
-						<p class="text-center">&copy; 2020 <a href="index.php">Poultry Farm</a>.All Rights Reserved By <a href="https://themeforest.net/user/labartisan" target="_blank">LabArtisan</a></p>
+						<p class="text-center">&copy; 2023 <a href="home.php">Ferme avicole</a>.Tous droits réservés par <a href="https://themeforest.net/user/labartisan" target="_blank">AgroFarm</a></p>
 					</div>
 				</div>
 			</div>
@@ -571,6 +465,37 @@
 		<script src="../public/assets/js/isotope.pkgd.min.js"></script>
 		<script src="../public/assets/js/lightcase.js"></script>
 		<script src="../public/assets/js/functions.js"></script>
+		
+
+
+		<script>
+			function click()
+			{
+				setTimeout(() => {
+					simulateClick('.lab-ul li:nth-child(2) a[data-target="#Modal2"]');
+				}, 1000);
+			}
+			 
+			function simulateClick(targetSelector) 
+			{
+									const targetLink = document.querySelector(targetSelector);
+									if (targetLink) {
+									  const event = new MouseEvent('click', 
+									  {
+										view: window,
+										bubbles: true,
+										cancelable: true
+									  });
+									  targetLink.dispatchEvent(event);
+									}
+			}
+		</script>
+		<script> 
+
+				
+		</script>
+
+
 	</body>
 
 <!-- Mirrored from labartisan.net/demo/PoultryFarm/poultry-farm/cart-page.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Mar 2023 16:31:29 GMT -->

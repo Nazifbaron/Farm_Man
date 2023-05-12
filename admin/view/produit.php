@@ -70,6 +70,13 @@
                     <input type="number" class="form-control" value="<?=$produit['prix']?>" name="prix" id="prix" placeholder="@Prix">
                   </div>
                   <div class="form-group">
+                    <label for="statut">Statut</label>
+                    <select name="statut" class="form-control" id="statut">
+                        <option value="fini">Produit Fini</option>
+                        <option value="stock">Stock</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
                     <label for="img">Photo du produit</label>
                     <input type="file" class="form-control"  name="img" id="img" >
                   </div>
@@ -90,15 +97,17 @@
                 <h3 class="card-title">Liste des Produits</h3>
 
                 <div class="card-tools">
+                  <form method="post" action="../model/searchPro.php">
                   <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
                     <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
+                      <button type="submit" name="search" class="btn btn-default">
                         <i class="fas fa-search"></i>
                       </button>
                     </div>
                   </div>
+                  </form>
                 </div>
               </div>
               <!-- /.card-header -->
@@ -110,6 +119,7 @@
                       <th>Categorie</th>
                       <th>Quantite</th>
                       <th>Prix unitaire</th>
+                      <th>Statut</th>
                       <th>Image</th>
                       <th>Action</th>
                     </tr>
@@ -127,10 +137,10 @@
                             <td><?=$value['libelleCat']?></td>
                             <td><?=$value['quantite']?></td>
                             <td><?=$value['prix']?></td>
+                            <td><?=$value['statut']?></td>
                             <td><img src="../<?=$value['images']?>" width="100px" height="100px"/></td>
                             <td><a href="?id=<?=$value['id']?>"><i class="bx bx-edit-alt"></i></a></td>
-                            <td><a href="../model/delete.php?supprimer=<?=$value['id']?>" onclick="return Confirmation();">supprimer</a></td>
-
+                            <td><a href="../model/delete.php?supprimer=<?=$value['id']?>" onclick="return Confirmation();"><img src="../../public/assets/images/del.png" alt="product" ></a></td>
                           </tr>
                             <?php             
                             }

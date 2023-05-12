@@ -4,7 +4,7 @@ if (storage.getItem("cart")) {
 } else {
   storage.setItem("cart", JSON.stringify([]));
 }
-
+ 
 function addToCart(nom, prix, quantite, img, id) {
   var cart = JSON.parse(storage.getItem("cart"));
   var prixTotal = prix * quantite;
@@ -35,6 +35,8 @@ function addToCart(nom, prix, quantite, img, id) {
   storage.setItem("cart", JSON.stringify(cart));
 
 }
+
+
 
 function showCartPreview() {
 
@@ -89,7 +91,7 @@ function showCartTable() {
         <td>
             <div class="cart-plus-minus">
               
-                <input class="cart-plus-minus-box" type="number" id="qte_${cart[i].id}" onchange="UpdateCart('${myId}', ${cart[i].id}, ${cart[i].prix})" value="${cart[i].quantite}">
+                <input class="cart-plus-minus-box"  type="number" id="qte_${cart[i].id}" onchange="UpdateCart('${myId}', ${cart[i].id}, ${cart[i].prix})" value="${cart[i].quantite}">
            
             </div>
             
@@ -101,24 +103,14 @@ function showCartTable() {
     </tr>
        
         `;
+        
   }
 
   document.getElementById("tprice").innerHTML = price;
 }
 
 
-//ici on attend 2seconde pour actualiser le input de la class (.cart-plus-minus-box)
-var CartPlusMinus = $('.cart-plus-minus-box');
-CartPlusMinus=addEventListener("input", function() 
-{
- 
-  this.setTimeout(function()
-  {
-    location.reload();
-    
-  },2000);
 
-});
 
   function UpdateCart(elm, id, prix) {
     var qte = document.getElementById(elm);
@@ -140,6 +132,12 @@ CartPlusMinus=addEventListener("input", function()
     storage.setItem("cart", JSON.stringify(cart));
     alert("succes");
 
+    
+    this.setTimeout(function()
+    {
+      location.reload();
+      
+    },500);
     
   }
 
@@ -167,8 +165,6 @@ CartPlusMinus=addEventListener("input", function()
     location.reload();
   }
 
-
-
 function send_order() {
     var price = document.getElementById('tprice').innerText
     var _location = document.getElementById('livraison').value
@@ -179,7 +175,6 @@ function send_order() {
 
         var requestOptions = {
             method: "POST",
-           
             body: formdata,
             redirect: "follow",
         };
@@ -201,6 +196,8 @@ function send_order() {
             })
             .catch((error) => console.log("error", error));
             alert('Commande enregistrée avec succes')
+
+
 }
 
 function order_content(product, order, quantity) {
@@ -225,6 +222,20 @@ function order_content(product, order, quantity) {
             
             .catch((error) => console.log("error", error));
 }
+  function feda(){
+      FedaPay.init('#pay-btn',{
+        public_key:'pk_sandbox_SlyXXY4_iM4DB5Xql6_ih3oZ',
+        transaction:{
+          amount:parseInt(document.getElementById('tprice').innerText),
+          description:'Acheter mon produit'
+        }
+    
+    });
+
+  }
+
+  
+
 
 /*
 *Le code que vous avez fourni est une fonction JavaScript appelée addToCart(). 
@@ -251,3 +262,4 @@ alerte pour informer l'utilisateur que le produit a été ajouté au panier.
 En résumé, ce code permet d'ajouter des produits au panier en stockant les informations nécessaires 
 dans le stockage local du navigateur.*
 */
+

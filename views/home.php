@@ -1,6 +1,9 @@
 <?php
+		session_start();
 	require_once "../views/partials/entete.php";
-	require_once "../admin/model/function.php";
+	require_once "../admin/model/function.php";;
+
+	//echo $_SESSION["link"];
 ?>
 		<!-- desktop menu ending here -->
 
@@ -17,7 +20,7 @@
 									<div class="col-12">
 										<div class="banner-content">
 											<h1 class="banner-title"><B class="d-lg-block">Volaille fraîchement abattue </B>
-												Poulets, viandes de gibier spécialisées, œufs et plus encore !!! </h1>
+												Poulets, œufs et plus encore !!! </h1>
 											<a href="#" class="lab-btn"><span>DÉCOUVRIR MAINTENANT</span></a>
 										</div>
 									</div>
@@ -34,7 +37,7 @@
 									<div class="col-12">
 										<div class="banner-content">
 											<h1 class="banner-title"><B class="d-lg-block">Volaille fraîchement abattue</B>
-												Poulets, viandes de gibier spécialisées, œufs et plus encore !!! </h1>
+												Poulets, œufs et plus encore !!! </h1>
 											<a href="#" class="lab-btn"><span>DÉCOUVRIR MAINTENANT</span></a>
 										</div>
 									</div>
@@ -51,7 +54,7 @@
 									<div class="col-12">
 										<div class="banner-content">
 											<h1 class="banner-title"><B class="d-lg-block">Volaille fraîchement abattue</B>
-												Poulets, viandes de gibier spécialisées, œufs et plus encore !!! </h1>
+												Poulets, œufs et plus encore !!! </h1>
 											<a href="#" class="lab-btn"><span>DÉCOUVRIR MAINTENANT</span></a>
 										</div>
 									</div>
@@ -78,7 +81,7 @@
 						<div class="about-wrapper p-0">
 							<div class="about-title">
 								<h2><span class="d-lg-block"> Bienvenue sur notre site de volaille et de </span>Ferme d'élevage d'œufs.</h2>
-								<p>Produire en permanance un produit d'une qualité convaincante, rempli de tout ce qui les enthousiasme.
+								<p>Nous produisons en permanance un produit d'une qualité convaincante, rempli de tout ce qui les enthousiasme.
 									 Mise en place du site web et création de pages.</p>
 							</div>
 							<div class="about-content">
@@ -168,7 +171,7 @@
 							
 							</div>
 							<div class="text-center mt-3">
-								<a href="#" class="lab-btn"><span>Acheter</span></a>
+								<a href="cart-page.php" class="lab-btn"><span>Acheter</span></a>
 							</div>
 						</div>
 					</div>

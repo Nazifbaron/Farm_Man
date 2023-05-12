@@ -1,6 +1,4 @@
-	<?php session_start(); ?>
-
-	<!DOCTYPE html>
+<!DOCTYPE html>
 	<html lang="en">
 
 	<!-- Mirrored from labartisan.net/demo/PoultryFarm/poultry-farm/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Mar 2023 16:30:41 GMT -->
@@ -22,6 +20,7 @@
 		<link rel="stylesheet" href="../public/assets/css/swiper.min.css">
 		<link rel="stylesheet" href="../public/assets/css/style.css">
 		<link rel="stylesheet" href="../admin/dist/css/styles.css">
+		
 
 
 	</head>
@@ -59,7 +58,7 @@
 		<div class="mobile-menu transparent-header">
 			<nav class="mobile-header">
 				<div class="header-logo">
-					<a href="/"><img src="../public/assets/images/logo/01.png" alt="logo"></a>
+					<a href="#"><img src="../public/assets/images/logo/01.png" alt="logo"></a>
 				</div>
 				<div class="header-bar">
 					<span></span>
@@ -102,6 +101,8 @@
 		<?php include('modal_connexion.php'); ?>
 		<!-- Modals include fin-->
 
+		
+
 		<!-- desktop menu start here -->
 		<header class="header-section">
 			<div class="header-top">
@@ -109,7 +110,7 @@
 					<div class="row justify-content-center align-items-center">
 						<div class="col-lg-5 col-12">
 							<div class="logo py-2">
-								<a href="/"><img src="../public/assets/images/logo/01.png" alt="logo"></a>
+								<a href="/"><img src="../public/assets/images/logo/03.png" alt="logo" max-height="30px"></a>
 							</div>
 						</div>
 						<div class="col-lg-7 col-12">
@@ -130,7 +131,7 @@
 										</div>
 										<div class="ht-add-content">
 											<span>Envoyer Mail </span>
-											<span class="d-block text-bold">nazifi@gmail.com</span>
+											<span class="d-block text-bold">poultryfarm229@gmail.com</span>
 										</div>
 									</li>
 									<li class="d-flex flex-wrap align-items-center">
@@ -148,7 +149,7 @@
 					</div>
 				</div>
 			</div>
-			<?php include('../admin/view/error_success.php'); ?>
+			<!--<?php include('../admin/view/error_success.php'); ?>-->
 
 			<div class="header-bottom bg-theme">
 				<div class="header-area">
@@ -157,7 +158,7 @@
 							<div class="main-area w-100">
 								<div class="main-menu d-flex flex-wrap align-items-center justify-content-between w-100">
 									<div class="logo">
-										<a href="index.php"><img src="../public/assets/images/logo/02.png" alt="logo"></a>
+										<a href="home.php"><img src="../public/assets/images/logo/02.png" alt="logo"></a>
 									</div>
 									<ul class="lab-ul">
 
@@ -178,14 +179,27 @@
 
 											</ul>
 										</li>
-										<li><a href="../contact.php">Contact</a></li>
+										<li><a href="contact.php">Contact</a></li>
 										<li>
 											<a href="#0">Se Connecter</a>
 											<ul class="lab-ul">
-												<li><a href="#" data-toggle="modal" data-target="#Modal1">Inscription</a></li>
-												<li><a href="#" data-toggle="modal" data-target="#Modal2">Connection</a></li>
+												<li><a href="partials/inscription.php">Inscription</a></li>
+												<li><a href="partials/connexion.php">Connection</a></li>
+												
 											</ul>
 										</li>
+										<li>
+										<?php
+											session_start();
+													if(!empty($_SESSION['email'])){
+														echo '<a href="../views/destroy.php">Déconnexion</button>';
+													}
+													
+													
+											?>
+										</li>
+
+										
 									</ul>
 									<ul class="lab-ul search-cart">
 										<li>

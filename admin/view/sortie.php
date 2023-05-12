@@ -3,7 +3,7 @@
     require_once "entete.php";
     require_once "../model/function.php";
 
-    require_once "../model/deleteSortie.php";
+    //require_once "../model/deleteSortie.php";
 
     $id = $_GET['id'];
     if(!empty($id)){
@@ -65,15 +65,17 @@
                 <h3 class="card-title">Liste des Sorties</h3>
 
                 <div class="card-tools">
+                <form method="post" action="../model/searchSor.php">
                   <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
                     <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
+                      <button type="submit" name="search" class="btn btn-default">
                         <i class="fas fa-search"></i>
                       </button>
                     </div>
                   </div>
+                  </form>
                 </div>
               </div>
               <!-- /.card-header -->
@@ -98,8 +100,7 @@
                             <td><?=$value['typeS']?></td>
                             <td><?=$value['dateS']?></td>
                             <td><a href="?id=<?=$value['idS']?>"><i class="bx bx-edit-alt"></i></a></td>
-                            <td><a href="../model/deleteSortie.php?supprimer=<?=$value['idS']?>" onclick="return Confirmation();">supprimer</a></td>
-
+                            <!--<td><a href="../model/deleteSortie.php?supprimer=<?=$value['idS']?>" onclick="return Confirmation();">supprimer</a></td>-->
                           </tr>
                             <?php             
                             }
