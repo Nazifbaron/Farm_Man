@@ -238,7 +238,7 @@
             <a href="entre.php" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                Categorie Entrées
+                 Entrées
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -256,7 +256,7 @@
             <a href="detailEntre.php" class="nav-link">
               <i class="nav-icon far fa-image"></i>
               <p>
-                 Entrés
+                 Détails des Entrés
               </p>
             </a>
           </li>
@@ -264,7 +264,7 @@
             <a href="detailSortie.php" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
-                Categorie Sortie
+                Détails des Sortie
               </p>
             </a>
           </li>
@@ -281,7 +281,7 @@
             <a href="detailCommande.php" class="nav-link">
               <i class="nav-icon fas fa-book"></i>
               <p>
-                Détails Commande
+                
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -290,7 +290,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-                Extras
+                
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -368,7 +368,7 @@
               <li class="nav-item">
                 <a href="../pages/examples/lockscreen.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Lockscreen</p>
+                  <p></p>
                 </a>
               </li>
               <li class="nav-item">
@@ -419,7 +419,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-search"></i>
               <p>
-                Search
+                
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -438,20 +438,20 @@
               </li>
             </ul>
           </li>
-          <li class="nav-header">MISCELLANEOUS</li>
+          <li class="nav-header"></li>
           <li class="nav-item">
             <a href="iframe.html" class="nav-link">
               <i class="nav-icon fas fa-ellipsis-h"></i>
-              <p>Tabbed IFrame Plugin</p>
+              <p></p>
             </a>
           </li>
           <li class="nav-item">
             <a href="https://adminlte.io/docs/3.1/" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
-              <p>Documentation</p>
+              <p></p>
             </a>
           </li>
-          <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+          <li class="nav-header"></li>
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="fas fa-circle nav-icon"></i>

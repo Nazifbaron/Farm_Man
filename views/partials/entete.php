@@ -159,6 +159,7 @@
 								<div class="main-menu d-flex flex-wrap align-items-center justify-content-between w-100">
 									<div class="logo">
 										<a href="home.php"><img src="../public/assets/images/logo/02.png" alt="logo"></a>
+										<!--a changer-->
 									</div>
 									<ul class="lab-ul">
 
@@ -184,22 +185,17 @@
 											<a href="#0">Se Connecter</a>
 											<ul class="lab-ul">
 												<li><a href="partials/inscription.php">Inscription</a></li>
-												<li><a href="partials/connexion.php">Connection</a></li>
-												
+												<li><a href="partials/connexion.php">Connection</a></li>												
 											</ul>
 										</li>
 										<li>
 										<?php
 											session_start();
 													if(!empty($_SESSION['email'])){
-														echo '<a href="../views/destroy.php">Déconnexion</button>';
-													}
-													
-													
+														echo '<a href="../views/destroy.php">Déconnexion</a>';
+													}	
 											?>
-										</li>
-
-										
+										</li>										
 									</ul>
 									<ul class="lab-ul search-cart">
 										<li>
@@ -214,8 +210,8 @@
 															<p>Total: <b class="float-right"><span id="price"></span></b></p>
 														</div>
 														<div class="cart-action">
-															<a href="#" class="lab-btn"><span>View Cart</span></a>
-															<a href="#" class="lab-btn"><span>Check Out</span></a>
+															<a href="cart-page.php" class="lab-btn"><span>Voir Panier</span></a>
+															<a href="cart-page.php" class="lab-btn"><span>Acheter</span></a>
 														</div>
 													</div>
 												</div>

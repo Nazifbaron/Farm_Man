@@ -238,8 +238,8 @@ body {
         Vous avez déjà un compte ? <br>
             <a href="inscription.php">Inscrivez-vous ici</a> 
         </div><br><br>
-        <div>
-            <img style="border-radius:2em;" src="../../admin/medias/logo.png" alt="farm-logo" >
+        <div style="text-align:center">
+            <img style="border-radius:2em;" src="../../admin/medias/log.png" alt="farm-logo" >
         </div><br>
         <div>
             <h5 style="text-align: center;justify-content:center;color: #4e9a06">2020-2023</h5>

@@ -29,17 +29,10 @@ session_start();
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
 }
 
-.registration-form .form-icon{
-	text-align: center;
-    background-color: #5891ff;
-    border-radius: 50%;
-    font-size: 40px;
-    color: white;
-    width: 100px;
-    height: 100px;
-    margin: auto;
-    margin-bottom: 50px;
-    line-height: 100px;
+.registration-form .logo{
+	
+    margin-left: 80px;
+   
 }
 
 .registration-form .item{
@@ -102,11 +95,8 @@ session_start();
         padding: 50px 20px;
     }
 
-    .registration-form .form-icon{
-        width: 70px;
-        height: 70px;
-        font-size: 30px;
-        line-height: 70px;
+    .registration-form .logo{
+      margin-left: 20px;
     }
 }
     </style>
@@ -116,9 +106,9 @@ session_start();
     <?php include('../../admin/view/error_success.php'); ?>
         
         <form method="post" action="../../model/Ajout.php" >
-            <div class="form-icon">
-                <span><i class="icon icon-user"></i></span>
-            </div>
+            <div class="logo">
+                <img style="border-radius:2em;" src="../../admin/medias/log.png" alt="farm-logo" >
+            </div><br><br>
             <div class="form-group">
                 <input type="text" class="form-control item" placeholder="@Nom" name="nom" id="nom">
             </div>
@@ -146,9 +136,7 @@ session_start();
             Vous avez déjà un compte <br>
             <a href="connexion.php">Connectez-vous</a> 
            
-            <div>
-                <h5 style="text-align: center;justify-content:center;color: #4e9a06">2020-2023</h5>
-            </div>
+           
         </form>
         
         

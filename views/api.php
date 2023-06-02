@@ -22,17 +22,26 @@ session_start();
             try{
                
                 $req = $bdd -> prepare('INSERT INTO commande(montant, payer, adrLiv, Client_idCli) VALUES (?,?,?,?)');
-                $req->execute(array($amount, $paid, $adress, $_SESSION['id']));
+                //$req->execute(array($amount, $paid, $adress, $_SESSION['id']));
+                // Convertir le champ "paid" en booléen (1 pour true, 0 pour false)
+                if ($paid == 'true') {
+                    $paidValue = 1;
+                } else {
+                    $paidValue = 0;
+                }
+
+                $req->execute(array($amount, $paidValue, $address, $_SESSION['id']));
+
 
                 $req = $bdd ->query('SELECT * FROM commande WHERE idCmd=(SELECT max(idCmd) FROM commande)');
                 $data = $req->fetch();
                 $orderId = $data['idCmd'];
 
                 
-                $email = null;
-                $email = $_SESSION['email'];
+                //$email = null;
+                //$email = $_SESSION['email'];
                 
-                sendConfirmationEmail($orderId,$email);
+                sendConfirmationEmail($orderId);
                 
                 header('Content-Type: application/json');
                 header('Access-Control-Allow-Origin: *');
@@ -99,7 +108,7 @@ session_start();
 
     
 // Fonction pour envoyer l'e-mail de confirmation
-function sendConfirmationEmail($orderId,$email) {
+function sendConfirmationEmail($orderId) {
 
 require '../phpmailer/Exception.php';
 require '../phpmailer/PHPMailer.php';
@@ -119,7 +128,7 @@ require '../phpmailer/SMTP.php';
 
         // Configuration du contenu de l'e-mail de confirmation
         $phpmailer->setFrom("poultryfarm229@gmail.com");
-		$phpmailer->addAddress($email);
+		$phpmailer->addAddress("nazifibabamoussa@gmail.com");
 		$phpmailer->isHTML(true);
 		$phpmailer->Subject ="Agro Farm";
         $phpmailer->Body="Votre commande (ID: $orderId) a été confirmée.";

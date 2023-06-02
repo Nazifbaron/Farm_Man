@@ -103,10 +103,13 @@ function showCartTable() {
     </tr>
        
         `;
+
+
         
   }
 
   document.getElementById("tprice").innerHTML = price;
+  document.getElementById("paymentButton").setAttribute("amount", price);
 }
 
 
@@ -222,6 +225,7 @@ function order_content(product, order, quantity) {
             
             .catch((error) => console.log("error", error));
 }
+
   function feda(){
       FedaPay.init('#pay-btn',{
         public_key:'pk_sandbox_SlyXXY4_iM4DB5Xql6_ih3oZ',

@@ -31,7 +31,12 @@
 		<link rel="stylesheet" href="../public/../public/assets/css/lightcase.css">
 		<link rel="stylesheet" href="../public/../public/assets/css/swiper.min.css">
 		<link rel="stylesheet" href="../public/../public/assets/css/style.css">
-		<script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>
+		<!--<script src="https://cdn.fedapay.com/checkout.js?v=1.1.7"></script>-->
+		<script
+  src="https://cdn.jsdelivr.net/gh/Chipdeals/mobile-money-api-Javascript@1.6.1/lib.min.js"
+  apiKey="test-4922a9dc-3292-4c7a-ba3a-f4ece1c1376b"
+  successfulRedirection="https://chipdeals.me/mobile-money"
+></script>
 	</head>
 
 	<body onload="showCartTable()">
@@ -194,10 +199,8 @@
 										<?php
 											session_start();
 													if(!empty($_SESSION['email'])){
-														echo '<a href="../views/destroy.php">Déconnexion</button>';
+														echo '<a href="../views/destroy.php">Déconnexion</a>';
 													}
-													
-													
 											?>
 										</li>
 
@@ -254,10 +257,14 @@
 		<!-- Page Header Section Ending Here -->
 
 		<!-- Shop Cart Page Section start here -->
+		
 		<div class="shop-cart padding-tb">
+	
 			<div class="container">
 				<div class="section-wrapper mb-15">
 					<div class="cart-top">
+						
+						
 						<table>
 							<thead>
 								<tr>
@@ -278,7 +285,9 @@
 							</tbody>
 							
 						</table>
-						<button class="lab-btn" id="pay-btn" onclick="feda()">Payer</button>
+						
+						<!--<a href="../model/payer.php" class="lab-btn" id="pay-btn" >Payer</a>-->
+						<button class="chipdeals-button lab-btn" id="paymentButton" amount="50" >Payer</button>
 					</div>
 					<div class="cart-bottom">
 					
@@ -465,6 +474,7 @@
 		<script src="../public/assets/js/isotope.pkgd.min.js"></script>
 		<script src="../public/assets/js/lightcase.js"></script>
 		<script src="../public/assets/js/functions.js"></script>
+		
 		
 
 
