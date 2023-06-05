@@ -35,7 +35,6 @@
 		<script
   src="https://cdn.jsdelivr.net/gh/Chipdeals/mobile-money-api-Javascript@1.6.1/lib.min.js"
   apiKey="test-4922a9dc-3292-4c7a-ba3a-f4ece1c1376b"
-  successfulRedirection="https://chipdeals.me/mobile-money"
 ></script>
 	</head>
 
@@ -474,7 +473,13 @@
 		<script src="../public/assets/js/isotope.pkgd.min.js"></script>
 		<script src="../public/assets/js/lightcase.js"></script>
 		<script src="../public/assets/js/functions.js"></script>
-		
+		<script>
+			document.addEventListener("chipdealsPaymentSucceeded", (event) => {
+				console.log(event);
+				console.log(event.detail.description);
+				userHasPaied = true
+			});
+		</script>
 		
 
 

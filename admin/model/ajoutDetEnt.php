@@ -13,10 +13,10 @@ function dd($elm=null){
           $entre=htmlspecialchars($_POST['entre']);
           $quantite=htmlspecialchars($_POST['quantite']);
           $prix=htmlspecialchars($_POST['prix']);
-          
-          $sql='INSERT INTO detailEntree(Produit_id,Entree_idE,quantite,prix ) VALUES(?,?,?,?)';
+
+          $sql='INSERT INTO detailEntree(Produit_id,Entree_idE,quantite,prix) VALUES(?,?,?,?)';
           $req = $bdd->prepare($sql);
-          $req->execute(array($produit, $entre,$quantite,$prix));
+          $req->execute(array($produit,$entre,$quantite,$prix));
           
         
           if ($req->rowCount() > 0) {

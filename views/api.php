@@ -22,17 +22,7 @@ session_start();
             try{
                
                 $req = $bdd -> prepare('INSERT INTO commande(montant, payer, adrLiv, Client_idCli) VALUES (?,?,?,?)');
-                //$req->execute(array($amount, $paid, $adress, $_SESSION['id']));
-                // Convertir le champ "paid" en booléen (1 pour true, 0 pour false)
-                if ($paid == 'true') {
-                    $paidValue = 1;
-                } else {
-                    $paidValue = 0;
-                }
-
-                $req->execute(array($amount, $paidValue, $address, $_SESSION['id']));
-
-
+                $req->execute(array($amount, $paid, $adress, $_SESSION['id']));
                 $req = $bdd ->query('SELECT * FROM commande WHERE idCmd=(SELECT max(idCmd) FROM commande)');
                 $data = $req->fetch();
                 $orderId = $data['idCmd'];

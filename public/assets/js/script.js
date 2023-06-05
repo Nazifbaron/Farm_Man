@@ -4,6 +4,8 @@ if (storage.getItem("cart")) {
 } else {
   storage.setItem("cart", JSON.stringify([]));
 }
+
+var userHasPaied = false
  
 function addToCart(nom, prix, quantite, img, id) {
   var cart = JSON.parse(storage.getItem("cart"));
@@ -168,12 +170,14 @@ function showCartTable() {
     location.reload();
   }
 
-function send_order() {
+  function send_order() {
     var price = document.getElementById('tprice').innerText
     var _location = document.getElementById('livraison').value
         var formdata = new FormData();
         formdata.append("amount", parseInt(price));
-        formdata.append("paid", 0);
+        var paid = 0;
+        if(userHasPaied==true) paid = 1
+        formdata.append("paid", paid);
         formdata.append("adress", _location);
 
         var requestOptions = {

@@ -2,6 +2,7 @@
     session_start();
     require_once "entete.php";
     require_once "../model/function.php";
+  
 
 
 
@@ -13,16 +14,12 @@
       $entree_id = $deta['Entree_idE'];
       $quantite = $deta['quantite'];
       $prix = $deta['prix'];
-      
     }
    
-
-    
     $details = getDetailEntre(); 
 
   ?>
 
-  
   <div class="content-wrapper">
     <section class="content-header">
       <div class="container-fluid">
@@ -64,9 +61,7 @@
                             echo '<option value="'.$produit['id'].'">'.$produit['nom'].'</option>';
                         }
                      ?>
-                        
-                            
-
+                     
                     </select>
                   </div>
                   <div class="form-group">
@@ -77,30 +72,24 @@
                         
                       <?php 
                         $_entre = getAllEntre();
-
                         while($entre = $_entre->fetch()){
-                          echo '<option value="'.$entre['id'].'">'.$entre['typeE'].'</option>';
+                          echo '<option value="'.$entre['idE'].'">'.$entre['typeE'].'</option>';
                         }
                       ?>
                        
-                         
-                            
-                          
-                     
                     </select>
                   </div>
                   
                   <div class="form-group">
                     <label for="quantite">Quantite</label>
                     <input type="number" class="form-control" value="<?= $quantite ?>" name="quantite" id="quantite" placeholder="@Quantite">
-                  </div>
+                  </div>          
 
                   <div class="form-group">
                     <label for="prix">Prix</label>
                     <input type="number" class="form-control" value="<?= $prix ?>" name="prix" id="prix" placeholder="@Prix">
                   </div>
-                 
-                  
+
                 <div class="card-footer">
                   <button type="submit" name="envoie" class="btn btn-primary">Valider</button>
                 </div>

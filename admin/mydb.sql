@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:3306
--- Généré le : mer. 19 avr. 2023 à 16:26
--- Version du serveur :  8.0.32-0ubuntu0.20.04.2
+-- Généré le : lun. 05 juin 2023 à 22:39
+-- Version du serveur :  8.0.33-0ubuntu0.20.04.2
 -- Version de PHP : 7.4.3-4ubuntu2.18
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -39,9 +39,8 @@ CREATE TABLE `categorie` (
 
 INSERT INTO `categorie` (`id`, `libelleCat`) VALUES
 (1, 'folo'),
-(2, 'oeuf'),
 (3, 'poule'),
-(4, 'poussin'),
+(4, 'pouss'),
 (5, 'aria'),
 (6, 'dolo'),
 (7, 'gfghhj');
@@ -71,7 +70,14 @@ INSERT INTO `client` (`idCli`, `nomCli`, `prenomCli`, `telephone`, `email`, `vil
 (1, 'mama', 'nazi', 62130072, 'nazif@gmail.com', 'cotonou', 'f96135cc35591790fea8b1b159c1f89bf681861e', 0),
 (2, 'morel', 'mor', 52146332, 'zaka@gmail.com', 'cotonou', '44e42e127470fbabfa4fedcd415ad34605d539a9', 0),
 (3, 'manou', 'moumou', 78451232, 'manou@gmail.com', 'cotonou', 'cbc18cc857a1eb0f3fea323aab4d43af7d13915c', 0),
-(4, 'morel', 'morel', 5236541, 'zaka@gmail.com', 'cotonou', '77add44f8f13cf5b3298a7833613aca42430386d', 0);
+(4, 'morel', 'morel', 5236541, 'zaka@gmail.com', 'cotonou', '77add44f8f13cf5b3298a7833613aca42430386d', 0),
+(5, 'tamou', 'djibril', 23568923, 'tamou@gmail.com', 'cotonou', 'd8618e55a16e459dd025e71b027762990a35e876', 0),
+(6, 'azert', 'azert', 89562310, 'nazif@gmail.com', 'cotonou', 'b448385b8db01a9c56f4abd3daac3e07b454f395', 0),
+(7, 'charid', 'charido', 62130072, 'nazifibabamoussa@gmail.com', 'ctonou', 'de5602ae55510b641b073ca3eb118d129777b8f7', 0),
+(8, 'sonou', 'fabrice', 12457898, 'nazif@gmail.com', 'cotonou', '782dd27ea8e3b4f4095ffa38eeb4d20b59069077', 0),
+(9, 'sonou', 'nazi', 78451232, 'zaka@gmail.com', 'vchgftu', '10d58bd87102f18f6f8d2e7fc4600aab5ef5549c', 0),
+(10, 'morel', 'nazi', 12345678, 'zaka@gmail.com', 'vchgftu', '4dc77f115b3726e74aa9cbe9346adad8abdb63e8', 0),
+(11, 'mama', 'ramzi', 32145698, 'nazifibabamoussa@gmail.com', 'cotonou', '971d9575f317eab4048e05f7f08effd34182e32a', 0);
 
 -- --------------------------------------------------------
 
@@ -88,6 +94,32 @@ CREATE TABLE `commande` (
   `Client_idCli` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
+--
+-- Déchargement des données de la table `commande`
+--
+
+INSERT INTO `commande` (`idCmd`, `montant`, `dateCmd`, `payer`, `adrLiv`, `Client_idCli`) VALUES
+(40, 32000, '2023-06-02 18:14:51', 0, '', 5),
+(41, 34000, '2023-06-02 19:07:39', 1, '', 5),
+(42, 34000, '2023-06-02 19:14:14', 1, '', 5),
+(43, 34000, '2023-06-02 19:22:30', 1, '', 5),
+(44, 34000, '2023-06-02 19:24:41', 1, '', 5),
+(45, 34000, '2023-06-02 19:24:57', 1, '', 5),
+(46, 34000, '2023-06-02 19:25:07', 1, '', 5),
+(47, 34000, '2023-06-02 19:25:17', 1, '', 5),
+(48, 34000, '2023-06-02 19:27:30', 1, '', 5),
+(49, 34000, '2023-06-02 19:29:46', 0, '', 5),
+(50, 34000, '2023-06-02 19:31:53', 0, '', 5),
+(51, 34000, '2023-06-02 19:34:06', 1, '', 5),
+(52, 34000, '2023-06-02 19:36:19', 1, '', 5),
+(53, 34000, '2023-06-02 19:37:25', 0, '', 5),
+(54, 34000, '2023-06-02 19:38:26', 0, '', 5),
+(55, 34000, '2023-06-02 19:40:39', 0, '', 5),
+(56, 52010, '2023-06-02 20:38:27', 0, '', 5),
+(57, 24000, '2023-06-05 00:32:16', 0, '', 11),
+(58, 24000, '2023-06-05 12:31:56', 0, '', 11),
+(59, 24000, '2023-06-05 12:34:14', 0, '', 11);
+
 -- --------------------------------------------------------
 
 --
@@ -96,10 +128,17 @@ CREATE TABLE `commande` (
 
 CREATE TABLE `detailCommande` (
   `id` int NOT NULL,
-  `Produit_idPr` int NOT NULL,
+  `Produit_id` int NOT NULL,
   `Commande_idCmd` int NOT NULL,
   `quantite` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+
+--
+-- Déchargement des données de la table `detailCommande`
+--
+
+INSERT INTO `detailCommande` (`id`, `Produit_id`, `Commande_idCmd`, `quantite`) VALUES
+(2, 18, 40, 25);
 
 -- --------------------------------------------------------
 
@@ -120,8 +159,9 @@ CREATE TABLE `detailEntree` (
 --
 
 INSERT INTO `detailEntree` (`id`, `Produit_id`, `Entree_idE`, `quantite`, `prix`) VALUES
-(1, 18, 1, 300, 5220),
-(2, 20, 1, 100, 2000);
+(2, 18, 1, 10, 2000),
+(3, 18, 1, 2, 12),
+(4, 16, 1, 3, 22);
 
 -- --------------------------------------------------------
 
@@ -141,9 +181,8 @@ CREATE TABLE `detailSortie` (
 --
 
 INSERT INTO `detailSortie` (`id`, `Produit_id`, `Sortie_idS`, `quantite`) VALUES
-(1, 20, 3, 1520),
-(2, 16, 3, 25),
-(3, 18, 1, 15);
+(1, 18, 1, 25),
+(2, 24, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -176,22 +215,27 @@ CREATE TABLE `produit` (
   `nom` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL,
   `quantite` int DEFAULT NULL,
   `prix` int DEFAULT NULL,
+  `statut` varchar(50) NOT NULL,
   `Categorie_idCat` int NOT NULL,
-  `images` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL
+  `images` varchar(500) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 --
 -- Déchargement des données de la table `produit`
 --
 
-INSERT INTO `produit` (`id`, `nom`, `quantite`, `prix`, `Categorie_idCat`, `images`) VALUES
-(3, 'mpoco', 154, 520, 3, ''),
-(16, 'poulet', 12, 147, 3, ''),
-(18, 'POUSSIN', 10, 147, 1, ''),
-(19, 'poussin', 12, 14, 4, ''),
-(20, 'mama', 14, 10, 5, ''),
-(22, 'morel', 20, 2000, 3, '../medias4902505424243-4902505424243_mood_04.jpg'),
-(23, 'azertyu', 20, 2000, 3, '../medias/voitu.jpg');
+INSERT INTO `produit` (`id`, `nom`, `quantite`, `prix`, `statut`, `Categorie_idCat`, `images`) VALUES
+(16, 'poulet', 12, 147, 'fini', 3, ''),
+(18, 'POUSSIN', 10, 147, 'fini', 1, ''),
+(20, 'mama', 14, 10, 'fini', 5, ''),
+(22, 'morel', 20, 2000, 'fini', 3, 'medias4902505424243-4902505424243_mood_04.jpg'),
+(23, 'azertyu', 20, 2000, 'fini', 3, 'medias/voitu.jpg'),
+(24, 'poussin', 20, 2000, 'fini', 1, 'medias/Tesla-Roadster.jpg'),
+(25, 'mama', 20, 2000, 'fini', 5, 'medias/le-fond-de-noël-avec-la-neige-couvert-les-sapins-et-pleine-lune-103596679.jpg'),
+(27, 'momom', 20, 1000, 'fini', 7, 'medias/nuage.jpg'),
+(28, 'macaroni', 15, 50000, 'stock', 5, 'medias/connect.png'),
+(29, 'cailler', 12, 12500, 'fini', 3, NULL),
+(30, 'mange', 5, 200, 'stock', 5, NULL);
 
 -- --------------------------------------------------------
 
@@ -243,7 +287,7 @@ ALTER TABLE `commande`
 ALTER TABLE `detailCommande`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_Produit_has_Commande_Commande1_idx` (`Commande_idCmd`),
-  ADD KEY `fk_Produit_has_Commande_Produit1_idx` (`Produit_idPr`);
+  ADD KEY `fk_Produit_has_Commande_Produit1_idx` (`Produit_id`);
 
 --
 -- Index pour la table `detailEntree`
@@ -294,31 +338,31 @@ ALTER TABLE `categorie`
 -- AUTO_INCREMENT pour la table `client`
 --
 ALTER TABLE `client`
-  MODIFY `idCli` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idCli` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `commande`
 --
 ALTER TABLE `commande`
-  MODIFY `idCmd` int NOT NULL AUTO_INCREMENT;
+  MODIFY `idCmd` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT pour la table `detailCommande`
 --
 ALTER TABLE `detailCommande`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `detailEntree`
 --
 ALTER TABLE `detailEntree`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `detailSortie`
 --
 ALTER TABLE `detailSortie`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `entree`
@@ -330,7 +374,7 @@ ALTER TABLE `entree`
 -- AUTO_INCREMENT pour la table `produit`
 --
 ALTER TABLE `produit`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT pour la table `sortie`
@@ -353,7 +397,7 @@ ALTER TABLE `commande`
 --
 ALTER TABLE `detailCommande`
   ADD CONSTRAINT `fk_Produit_has_Commande_Commande1` FOREIGN KEY (`Commande_idCmd`) REFERENCES `commande` (`idCmd`),
-  ADD CONSTRAINT `fk_Produit_has_Commande_Produit1` FOREIGN KEY (`Produit_idPr`) REFERENCES `produit` (`id`);
+  ADD CONSTRAINT `fk_Produit_has_Commande_Produit1` FOREIGN KEY (`Produit_id`) REFERENCES `produit` (`id`);
 
 --
 -- Contraintes pour la table `detailEntree`

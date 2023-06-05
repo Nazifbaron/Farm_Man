@@ -32,5 +32,5 @@ function dd($elm=null){
            
         }
    }
-   //header('Location:../view/produit.php');
+   //header('Location:../view/entree.php');
 ?>

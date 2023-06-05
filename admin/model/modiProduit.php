@@ -9,16 +9,18 @@ function dd($elm=null){
    if(isset($_POST['envoie'])){
     
         if(!empty($_POST['nom']) || !empty($_POST['categorie']) || !empty($_POST['quantite'])
-         || !empty($_POST['prix']) || !empty($_POST['id'])){
+         || !empty($_POST['prix']) || !empty($_POST['statut']) || !empty($_POST['img']) || !empty($_POST['id'])){
           $nom=htmlspecialchars($_POST['nom']);
           $categorie=htmlspecialchars($_POST['categorie']);
           $quantite=htmlspecialchars($_POST['quantite']);
           $prix=htmlspecialchars($_POST['prix']);
+          $statut=htmlspecialchars($_POST['statut']);
+          $img=htmlspecialchars($_POST['img']);
           $id = htmlspecialchars($_POST['id_update']);
           
-          $sql='UPDATE produit SET nom=?, quantite=?, prix=?, Categorie_idCat=? WHERE id=?';
+          $sql='UPDATE produit SET nom=?, quantite=?, prix=?, statut=?, Categorie_idCat=?, images=? WHERE id=?';
           $req = $bdd->prepare($sql);
-          $req->execute(array($nom, $quantite, $prix, $categorie, $id));
+          $req->execute(array($nom, $quantite, $prix, $statut, $categorie, $img, $id));
 
          var_dump($nom);
           
