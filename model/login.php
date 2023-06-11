@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
   else 
   {
    
-    $sql = "SELECT * FROM client WHERE email='$email' AND mdp='$password'";
+    $sql = "SELECT * FROM client WHERE email=? AND mdp=?";
     $result = $bdd->prepare($sql);
     $result->execute(array($email, $password));
     $user = $result->fetch();

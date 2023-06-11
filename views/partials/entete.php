@@ -97,8 +97,8 @@
 		<!-- Mobile Menu Ending Here -->
 
 		<!-- Modals include debut -->
-		<?php include('modal_inscription.php'); ?>
-		<?php include('modal_connexion.php'); ?>
+		<?php /* include('modal_inscription.php'); */ ?>
+		<?php /* include('modal_connexion.php'); */ ?>
 		<!-- Modals include fin-->
 
 		

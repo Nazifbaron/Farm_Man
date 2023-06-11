@@ -126,9 +126,9 @@ require '../phpmailer/SMTP.php';
         // Envoi de l'e-mail
         $phpmailer->Send();
 
-        echo "L'e-mail de confirmation a été envoyé avec succès.";
+       // echo "L'e-mail de confirmation a été envoyé avec succès."; on boss avec du json, ne faite pas echo que des jsAlert pour afficher les message derreurst
     } catch (Exception $e) {
-        echo "Erreur lors de l'envoi de l'e-mail de confirmation : " . $phpmailer->ErrorInfo;
+       //  echo "Erreur lors de l'envoi de l'e-mail de confirmation : " . $phpmailer->ErrorInfo;
     }
     		
 }
